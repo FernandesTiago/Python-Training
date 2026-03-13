@@ -1,0 +1,8 @@
+v = input('digite algo: ')
+print(type(v))
+print(f'E um numero? {v.isnumeric()}')
+print(f'E alfabetico? {v.isalpha()}')
+print(f'esta em maiusculo? {v.isupper()}')
+print(f'E um numero ou alfabetico? {v.isalnum()}')
+print(f'So tem espacos? {v.isspace()}')
+print(f'Esta em minusculo? {v.islower()}')
