@@ -1,5 +1,0 @@
-{
-    "python.REPL.enableREPLSmartSend": false,
-    "editor.inlineSuggest.enabled": false,
-    "github.copilot.enable": { "*": false }
-}

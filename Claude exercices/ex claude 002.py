@@ -29,10 +29,9 @@ while True:
                 break
             else:
                 print('\nNome invalido\n')
-                continue
         while True:
             numero = input('Qual o numero de telefone? (13 digitos): ').strip()
-            if numero.isdigit and len(numero) == 13:
+            if numero.isdigit() and len(numero) == 13:
                 numero = list(numero)
                 numero.insert(0,'+')
                 numero.insert(3,' ')
@@ -49,7 +48,7 @@ while True:
     elif acao == 2:
         if len(nomes) > 0:
             parar = False
-            while parar == False:
+            while not parar:
                 buscar = input('\nQual nome deseja buscar? ').strip().title()
                 for b in range(len(nomes)):
                     if buscar in nomes[b]:
@@ -58,7 +57,7 @@ while True:
         {numeros[b]}''')
                         parar = True
                 else:
-                    if parar == False:
+                    if not parar:
                         print('Nome nao encontrado')
                         while True:
                             continuar = input('Deseja tentar denovo? (S/N) ').strip().upper()
