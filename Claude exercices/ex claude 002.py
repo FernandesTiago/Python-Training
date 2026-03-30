@@ -130,7 +130,7 @@ while True:
                             excluir = input('\nTem certeza que dejesa excluir esse contato? (S/N) ').strip().upper()
                             if excluir == 'S' or excluir == 'N':
                                 if excluir == 'S':
-                                    indice_real = indices_encontrados
+                                    indice_real = len(indices_encontrados) - 1
                                     nomes.pop(indice_real)
                                     numeros.pop(indice_real)
                                     print('\nNome excluido')
