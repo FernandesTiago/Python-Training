@@ -2,18 +2,18 @@ import json
 
 def carregar_dados():
     """RETORNA OS DADOS DO JSON"""
-    with open('dados19.json','r') as arquivo:
+    with open('dados19.json', 'r') as arquivo:
         dados = json.load(arquivo)
         return dados
     
 def salvar_dados(dados):
     """SALVA OS DADOS () NO ARQUIVO"""
-    with open('dados19.json','w') as arquivo:
+    with open('dados19.json', 'w') as arquivo:
         json.dump(dados, arquivo)
 
 def deletar_dados():
     """DELETA A LISTA COMPLETA"""
-    with open('dados19.json','w'):
+    with open('dados19.json', 'w'):
         pass
 
 def printar(txt):

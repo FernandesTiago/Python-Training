@@ -1,21 +1,21 @@
 # lista de jogadores em arquivo .txt
 
 try:
-    with open('dados18.txt','r') as arquivo:
+    with open('dados18.txt', 'r') as arquivo:
         lista = arquivo.read()
         if not lista:
             print('Lista de jogadores vazia')
         else:
             print(lista)
 except FileNotFoundError:
-    with open('dados18.txt','a'):
+    with open('dados18.txt', 'a'):
         pass
     print('Lista de jogadores vazia')
 
-with open('dados18.txt','a') as arquivo:
+with open('dados18.txt', 'a') as arquivo:
     nome = input('Qual o nome que deseja adicionar? ').title().strip()
     if nome == 'D':
-        with open('dados18.txt','w'):
+        with open('dados18.txt', 'w'):
             pass
         exit()
     else:
