@@ -13,8 +13,12 @@ cursor.execute('''
     )
 ''')
 #cursor.execute('INSERT INTO funcionarios (nome, salario) VALUES (?, ?)', ('Tiago', 2500))
+#cursor.execute('INSERT INTO funcionarios (nome, salario) VALUES (?,?)', ('Juliana', 3000))
 
-cursor.execute('UPDATE funcionarios SET salario = 5000 WHERE id = 1')
+#cursor.execute('UPDATE funcionarios SET salario = 5000 WHERE id = 1')
+
+#cursor.execute('DELETE FROM funcionarios WHERE id = 1')
+
 cursor.execute('SELECT * FROM funcionarios')
 lista = cursor.fetchall()
 
