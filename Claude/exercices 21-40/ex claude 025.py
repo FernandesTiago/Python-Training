@@ -1,9 +1,4 @@
 #Crie um sistema de menu no terminal com as opções:
-#1 - Listar funcionários
-#2 - Adicionar funcionário
-#3 - Atualizar salário
-#4 - Deletar funcionário
-#0 - Sair
 
 import sqlite3
 
