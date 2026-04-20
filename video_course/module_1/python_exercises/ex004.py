@@ -1,0 +1,8 @@
+v = input("type something: ")
+print(type(v))
+print(f"Is it a number? {v.isnumeric()}")
+print(f"Is it alphabetic? {v.isalpha()}")
+print(f"Is it uppercase? {v.isupper()}")
+print(f"Is it a number or alphabetic? {v.isalnum()}")
+print(f"Is it only spaces? {v.isspace()}")
+print(f"Is it lowercase? {v.islower()}")
