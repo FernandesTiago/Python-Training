@@ -6,7 +6,8 @@ I'm learning Python and this repo tracks everything I've built along the way. Al
 
 ## Currently learning
 
-OOP — building a 3-class system (SQL + menu + hash-encrypted login) on top of the employees database from `lesson_sql.py`.
+OOP and SQL — building a 3-class system (SQL + menu + hash-encrypted login) on top of the employees database.
+FASTAPI — just started learning, will do an exercise up next.
 
 ## What I've learned
 
@@ -49,7 +50,7 @@ OOP — building a 3-class system (SQL + menu + hash-encrypted login) on top of 
 - `sqlite3.connect()`, cursors, `commit()`, `close()`
 - `CREATE TABLE IF NOT EXISTS`
 - `INSERT` / `UPDATE` / `DELETE` / `SELECT` with parameterized queries
-- `fetchall()` to read rows
+- `fetchall()` / `fetchone()` to read rows
 
 ### Standard library
 - `random` (`randint`), `math` (`sqrt`), `datetime` / `date.today()`, `time.sleep`, `pathlib`, `json`, `sqlite3`
