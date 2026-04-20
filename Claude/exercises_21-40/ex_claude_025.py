@@ -1,203 +1,203 @@
-#Crie um sistema de menu no terminal com as opções:
+# Create a terminal menu system with the options:
 
 import sqlite3
 
-# --------- ESTRUTURA DO BANCO DE DADOS ---------
+# --------- DATABASE STRUCTURE ---------
 
-class BancoDados:
+class Database:
 
     def __init__(self):
-        self.conexao = sqlite3.connect('MenuFuncionarios.db')
-        self.cursor = self.conexao.cursor()
-        self.conexao.execute('''
-        CREATE TABLE IF NOT EXISTS funcionarios (
+        self.connection = sqlite3.connect("EmployeeMenu.db")
+        self.cursor = self.connection.cursor()
+        self.connection.execute("""
+        CREATE TABLE IF NOT EXISTS employees (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome TEXT,
-        salario INTEGER
-    )''')   
-        
-    def ler(self):
-        self.cursor.execute('SELECT * FROM funcionarios')
+        name TEXT,
+        salary INTEGER
+    )""")
+
+    def read(self):
+        self.cursor.execute("SELECT * FROM employees")
         return self.cursor.fetchall()
-    
-    def buscar_id(self, id_buscado):
-        self.cursor.execute('SELECT * FROM funcionarios WHERE id = ?', (id_buscado,))
+
+    def find_by_id(self, searched_id):
+        self.cursor.execute("SELECT * FROM employees WHERE id = ?", (searched_id,))
         return self.cursor.fetchone()
 
-    def salvar(self, novo_nome, novo_salario):
-        self.cursor.execute('INSERT INTO funcionarios (nome, salario) VALUES (?,?)', (novo_nome, novo_salario))
-        self.conexao.commit()
+    def save(self, new_name, new_salary):
+        self.cursor.execute("INSERT INTO employees (name, salary) VALUES (?,?)", (new_name, new_salary))
+        self.connection.commit()
 
-    def atualizar_nome(self, id_lista, novo_nome):
-        self.cursor.execute('UPDATE funcionarios SET nome = ? WHERE id = ?', (novo_nome, id_lista))
-        self.conexao.commit()
+    def update_name(self, list_id, new_name):
+        self.cursor.execute("UPDATE employees SET name = ? WHERE id = ?", (new_name, list_id))
+        self.connection.commit()
 
-    def atualizar_salario(self, id_lista, novo_salario):
-        self.cursor.execute('UPDATE funcionarios SET salario = ? WHERE id = ?', (novo_salario, id_lista))
-        self.conexao.commit()
+    def update_salary(self, list_id, new_salary):
+        self.cursor.execute("UPDATE employees SET salary = ? WHERE id = ?", (new_salary, list_id))
+        self.connection.commit()
 
-    def pegar_maior_id(self):
-        self.cursor.execute('SELECT MAX(id) FROM funcionarios')
-        resultado = self.cursor.fetchone()
-        return resultado[0] if resultado[0] is not None else 0
+    def get_max_id(self):
+        self.cursor.execute("SELECT MAX(id) FROM employees")
+        result = self.cursor.fetchone()
+        return result[0] if result[0] is not None else 0
 
-    def deletar(self, id_para_deletar):
-        self.cursor.execute('DELETE FROM funcionarios WHERE id = ?',(id_para_deletar,))
-        self.conexao.commit()
+    def delete(self, id_to_delete):
+        self.cursor.execute("DELETE FROM employees WHERE id = ?", (id_to_delete,))
+        self.connection.commit()
 
-    def fechar_conexao(self):
-        self.conexao.commit() 
-        self.conexao.close()
-        print("Conexão com o banco de dados encerrada.")
+    def close_connection(self):
+        self.connection.commit()
+        self.connection.close()
+        print("Database connection closed.")
 
     def __del__(self):
         try:
-            self.conexao.close()
+            self.connection.close()
         except:
             pass
 
-# --------- ESTRUTURA DO MENU ---------
+# --------- MENU STRUCTURE ---------
 
 class Menu:
 
     def __init__(self):
-        self.db = BancoDados()
-        self.opcoes = {
-            '1': self.listar,
-            '2': self.adicionar,
-            '3': self.atualizar,
-            '4': self.excluir,
-            '0': self.sair_sistema
+        self.db = Database()
+        self.options = {
+            "1": self.list_employees,
+            "2": self.add,
+            "3": self.update,
+            "4": self.remove,
+            "0": self.exit_system
         }
 
-    def iniciar_menu(self):
-        while  True:
-            print('-='*16)
-            print('[1] - Listar funcionários')
-            print('[2] - Adicionar funcionário')
-            print('[3] - Atualizar tabela')
-            print('[4] - Deletar funcionário')
-            print('[0] - Sair')
-            print('-=' * 16)
+    def start_menu(self):
+        while True:
+            print("-=" * 16)
+            print("[1] - List employees")
+            print("[2] - Add employee")
+            print("[3] - Update table")
+            print("[4] - Delete employee")
+            print("[0] - Exit")
+            print("-=" * 16)
 
             while True:
-                escolha = input('> ').strip()
+                choice = input("> ").strip()
 
-                if escolha in self.opcoes:
-                    self.opcoes[escolha]()
+                if choice in self.options:
+                    self.options[choice]()
                     break
                 else:
-                    print('Opção inválida, tente novamente!')
+                    print("Invalid option, try again!")
 
-    def listar(self):
-        maximo = self.db.pegar_maior_id()
-        if maximo == 0:
-            print('Lista vazia')
-        else:    
-            lista = self.db.ler()
-            for item in lista:
-                print(f'ID: {item[0]} | Nome: {item[1]} | Salario: {item[2]}')
+    def list_employees(self):
+        maximum = self.db.get_max_id()
+        if maximum == 0:
+            print("Empty list")
+        else:
+            records = self.db.read()
+            for record in records:
+                print(f"ID: {record[0]} | Name: {record[1]} | Salary: {record[2]}")
 
-    def adicionar(self):
-        print('Que nome deseja salvar?')
-        nome = input('> ')
-        print('Qual o salario?')
+    def add(self):
+        print("What name do you want to save?")
+        name = input("> ")
+        print("What is the salary?")
         while True:
             try:
-                salario = float(input('> '))
+                salary = float(input("> "))
                 break
             except ValueError:
-                print('Valor invalido')
-        self.db.salvar(nome, salario)
-        print(f'Funcionario {nome} salvo com sucesso!')
+                print("Invalid value")
+        self.db.save(name, salary)
+        print(f"Employee {name} saved successfully!")
 
-    def atualizar(self):
-        maior_id = self.db.pegar_maior_id()
-        if maior_id == 0:
-            print('Lista Vazia!')
+    def update(self):
+        max_id = self.db.get_max_id()
+        if max_id == 0:
+            print("Empty list!")
         else:
             while True:
-                print('Que funcionario deseja atualizar? (ID)')
+                print("Which employee do you want to update? (ID)")
                 while True:
                     try:
-                        fid = int(input('> '))
-                        if fid > maior_id or fid <= 0:
-                            print('ID invalido')
+                        fid = int(input("> "))
+                        if fid > max_id or fid <= 0:
+                            print("Invalid ID")
                         else:
                             break
                     except ValueError:
-                        print('ID invalido')
-                funcionario = self.db.buscar_id(fid)
-                if not funcionario:
-                    print('Funcionário não encontrado!')
+                        print("Invalid ID")
+                employee = self.db.find_by_id(fid)
+                if not employee:
+                    print("Employee not found!")
                 else:
-                    print(f'ID: {funcionario[0]} | Nome: {funcionario[1]} | Salario: R$ {funcionario[2]}\n')
-                    print('Oque deseja atualizar?')
-                    print('[1] - Nome')
-                    print('[2] - Salario')
-                    print('[3] - Outra pessoa')
-                    print('[0] - sair')     
-                    escolha = input('> ')
+                    print(f"ID: {employee[0]} | Name: {employee[1]} | Salary: $ {employee[2]}\n")
+                    print("What do you want to update?")
+                    print("[1] - Name")
+                    print("[2] - Salary")
+                    print("[3] - Another person")
+                    print("[0] - Exit")
+                    choice = input("> ")
 
-                    if escolha == '1':
-                        print('Qual o novo nome?')
-                        nome = input('> ')
-                        self.db.atualizar_nome(fid, nome)
-                        return     
-                    elif escolha == '2':
-                        print('Qual o novo salario?')
+                    if choice == "1":
+                        print("What is the new name?")
+                        name = input("> ")
+                        self.db.update_name(fid, name)
+                        return
+                    elif choice == "2":
+                        print("What is the new salary?")
                         while True:
                             try:
-                                salario = float(input('> '))
+                                salary = float(input("> "))
                             except ValueError:
-                                print('Valor invalido.')
+                                print("Invalid value.")
                             else:
-                                self.db.atualizar_salario(fid, salario)
-                                return                           
-                    elif escolha == '3':
+                                self.db.update_salary(fid, salary)
+                                return
+                    elif choice == "3":
                         continue
-                    elif escolha == '0':
-                        print('Acão cancelada.')
+                    elif choice == "0":
+                        print("Action cancelled.")
                         return
-                    
-    def excluir(self):
-        id_maximo = self.db.pegar_maior_id()
-        if id_maximo == 0:
-            print('Lista vazia')
+
+    def remove(self):
+        max_id = self.db.get_max_id()
+        if max_id == 0:
+            print("Empty list")
         else:
             while True:
-                print('Que funcionario deseja excluir? (ID)')
+                print("Which employee do you want to delete? (ID)")
                 try:
-                    eid = int(input('> '))
+                    eid = int(input("> "))
                     break
                 except ValueError:
-                    print('Valor invalido')
-            if eid > id_maximo or eid <= 0:
-                print('Valor invalido')
+                    print("Invalid value")
+            if eid > max_id or eid <= 0:
+                print("Invalid value")
             else:
-                funcionario = self.db.buscar_id(eid)
-                if not funcionario:
-                    print('Funcionário não encontrado!')
+                employee = self.db.find_by_id(eid)
+                if not employee:
+                    print("Employee not found!")
                 else:
-                    print(f'ID: {funcionario[0]} | Nome: {funcionario[1]} | Salario: R$ {funcionario[2]}\n')
-                    print('Tem certeza que deseja excluir? (S/N)')
+                    print(f"ID: {employee[0]} | Name: {employee[1]} | Salary: $ {employee[2]}\n")
+                    print("Are you sure you want to delete? (Y/N)")
                     while True:
-                        escolha = input('> ').title().strip()
-                        if escolha == 'S':
-                            print('Funcionario excluido!')
-                            self.db.deletar(eid)
+                        choice = input("> ").title().strip()
+                        if choice == "Y":
+                            print("Employee deleted!")
+                            self.db.delete(eid)
                             return
-                        elif escolha == 'N':
-                            print('Ação cancelada.')
+                        elif choice == "N":
+                            print("Action cancelled.")
                             return
                         else:
-                            print('Valor invalido')
+                            print("Invalid value")
 
-    def sair_sistema(self):
-        print("Saindo e fechando banco...")
-        self.db.fechar_conexao()
+    def exit_system(self):
+        print("Exiting and closing database...")
+        self.db.close_connection()
         exit()
 
 if __name__ == "__main__":
     app = Menu()
-    app.iniciar_menu()
+    app.start_menu()

@@ -60,7 +60,6 @@ OOP — building a 3-class system (SQL + menu + hash-encrypted login) on top of 
 - **`Claude/exercises_01-20/`** and **`Claude/exercises_21-40/`** — exercises *proposed* by Claude, *coded* by me. Claude picks the topic based on what I'm currently learning and mixes in things I already know, so each exercise reinforces the new concept while reviewing older ones.
 - **`Claude/lessons/`** — lesson-style scripts where a new topic is introduced before I start exercises on it (currently: SQL).
 - **`Claude/Tests/`** — mini self-assessments.
-- **`test.py`** — standalone script (phone number formatter).
 
 ## Up next
 
