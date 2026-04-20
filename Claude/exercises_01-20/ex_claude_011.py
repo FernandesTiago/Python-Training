@@ -1,15 +1,15 @@
-# dicionarios e def
+# dictionaries and def
 
-produto1 = {'produto':'Notebook','preco':4000,'estoque':50}
-produto2 = {'produto':'smartphone','preco':10500,'estoque':100}
-produto3 = {'produto':'Televisao','preco':3000,'estoque':10}
+product1 = {"product": "Notebook", "price": 4000, "stock": 50}
+product2 = {"product": "smartphone", "price": 10500, "stock": 100}
+product3 = {"product": "Television", "price": 3000, "stock": 10}
 
-def exibir_produto(x):
-    print(f'''\nProduto: {x['produto']}
-Preco: {x['preco']}
-Estoque: {x['estoque']}
-''')
+def show_product(x):
+    print(f"""\nProduct: {x['product']}
+Price: {x['price']}
+Stock: {x['stock']}
+""")
 
-exibir_produto(produto1)
-exibir_produto(produto2)
-exibir_produto(produto3)
+show_product(product1)
+show_product(product2)
+show_product(product3)

@@ -1,35 +1,40 @@
-# ler exibir mengem perguntar se quer escrever mais
+# read, show message, ask if user wants to write more
 
-def escrita(a):
-    """Escrever no dados17.txt — 'a' para adicionar, 'w' para apagar e reescrever."""
+from pathlib import Path
+
+DATA_FILE = Path(__file__).parent / "data17.txt"
+
+
+def write(mode):
+    """Write to data17.txt — 'a' to append, 'w' to erase and rewrite."""
     while True:
-        continuar = input('Deseja escrever algo? (S/N) (D) para deletar: ').upper().strip()
-        if continuar == 'N':
-            print('Nenhum texto adicionado.')
+        keep_going = input("Do you want to write something? (Y/N) (D) to delete: ").upper().strip()
+        if keep_going == "N":
+            print("No text added.")
             break
-        elif continuar == 'S':
-            texto = input('Digite seu texto: ')
-            with open('dados17.txt', a) as arquivo:
-                arquivo.write(texto + '\n')
-            with open('dados17.txt', 'r') as arquivo:
-                print('Texto adicionado!\n' + arquivo.read())
+        elif keep_going == "Y":
+            text = input("Enter your text: ")
+            with open(DATA_FILE, mode) as file:
+                file.write(text + "\n")
+            with open(DATA_FILE, "r") as file:
+                print("Text added!\n" + file.read())
             break
-        elif continuar == 'D':
-            with open('dados17.txt', 'w'):
+        elif keep_going == "D":
+            with open(DATA_FILE, "w"):
                 pass
-            print('Arquivo esvaziado.')
+            print("File emptied.")
             break
         else:
-            print('Digite S, N ou D.')
+            print("Enter Y, N or D.")
 
 try:
-    with open('dados17.txt', 'r') as arquivo:
-        texto = arquivo.read()
-    if texto:
-        print(texto)
-        escrita('a')
+    with open(DATA_FILE, "r") as file:
+        text = file.read()
+    if text:
+        print(text)
+        write("a")
     else:
-        print('Arquivo vazio.')
-        escrita('w')
+        print("File is empty.")
+        write("w")
 except FileNotFoundError:
-    escrita('w')
+    write("w")

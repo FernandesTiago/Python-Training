@@ -1,24 +1,24 @@
-# Checagem de numero primo
+# Prime number check
 
 while True:
     try:
-        n = int(input('qual o numero que deseja saber se eh primo? '))
+        n = int(input("what is the number you want to check if it is prime? "))
         break
     except ValueError:
-        print('deve ser um numero inteiro')
+        print("must be an integer")
 
-primo = 0
+prime_count = 0
 if n == 0 or n == 1:
-    print('nao eh um numero primo')
+    print("it is not a prime number")
 else:
-    for c in range(1,n+1):
+    for c in range(1, n+1):
         if n % c == 0:
-            print(f'\033[1;32m{c}\033[m', end=' ')
-            primo += 1
+            print(f"\033[1;32m{c}\033[m", end=" ")
+            prime_count += 1
         else:
-            print(c, end=' ')
+            print(c, end=" ")
     print()
-    if primo > 2:
-        print(f'nao eh um numero primo, ele eh divisivel {primo} vezes')
+    if prime_count > 2:
+        print(f"it is not a prime number, it is divisible {prime_count} times")
     else:
-        print(f'eh um numero primo')
+        print(f"it is a prime number")

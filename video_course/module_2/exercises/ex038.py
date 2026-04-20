@@ -1,24 +1,24 @@
-# comparacao de dois numeros (maior/menor/igual)
+# comparison of two numbers (greater/lesser/equal)
 
 while True:
-    numero1 = input('Digite um numero inteiro qualquer: ')
-    if numero1.isnumeric():
-        numero1 = float(numero1)
+    number1 = input("Enter any integer: ")
+    if number1.isnumeric():
+        number1 = float(number1)
         break
     else:
-        print('digite um numero valido!')
+        print("enter a valid number!")
 
 while True:
-    numero2 = input('Digite outro numero inteiro qualquer: ')
-    if numero2.isnumeric():
-        numero2 = float(numero2)
+    number2 = input("Enter another integer: ")
+    if number2.isnumeric():
+        number2 = float(number2)
         break
     else:
-        print('digite um numero valido!')
+        print("enter a valid number!")
 
-if numero1 > numero2:
-    print('O primeiro valor e maior que o segundo')
-elif numero1 < numero2:
-    print('O segundo valor e maior que o primeiro')
+if number1 > number2:
+    print("The first value is greater than the second")
+elif number1 < number2:
+    print("The second value is greater than the first")
 else:
-    print('Os valores sao iguais')
+    print("The values are equal")

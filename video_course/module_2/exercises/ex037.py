@@ -1,26 +1,26 @@
-# Converter um numero inteiro em Binario, Octal e Hexadecimal.
+# Convert an integer to Binary, Octal and Hexadecimal.
 
 while True:
 
-    numero = input('Digite um numero inteiro qualquer: ')
-    if numero.isnumeric():
-        numero = int(numero)
+    number = input("Enter any integer: ")
+    if number.isnumeric():
+        number = int(number)
         break
     else:
-        print('Digite um numero inteiro!')
+        print("Enter an integer!")
 
 while True:
 
-    base = input('qual quase de conversao voce quer? (1-Binario, 2-octal, 3-hexadecimal) ')
+    base = input("what conversion base do you want? (1-Binary, 2-octal, 3-hexadecimal) ")
 
-    if base == '1':
-        print(bin(numero)[2:])
+    if base == "1":
+        print(bin(number)[2:])
         break
-    elif base == '2':
-        print(oct(numero)[2:])
+    elif base == "2":
+        print(oct(number)[2:])
         break
-    elif base == '3':
-        print(hex(numero)[2:])
+    elif base == "3":
+        print(hex(number)[2:])
         break
     else:
-        print('Digitou o valor da base errado!!')
+        print("You entered the wrong base value!!")

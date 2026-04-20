@@ -1,4 +1,4 @@
-d = int(input('quantos dias ficou com o carro? '))
-k = float(input('quantos km andou com o carro? '))
+d = int(input("how many days did you keep the car? "))
+k = float(input("how many km did you drive? "))
 
-print(f'O valor que devera pagar e de R${d*60 + k*0.15:.2f}')
+print(f"The amount to pay is R${d*60 + k*0.15:.2f}")

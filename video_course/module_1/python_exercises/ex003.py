@@ -1,21 +1,21 @@
 while True:
     try:
-        valor1 = int(input('qual o primeiro valor? '))
-        operador = input('qual o operador? (+, -, x, / )? ')
-        valor2 = int(input('qual o segundo valor? '))
+        value1 = int(input("what is the first value? "))
+        operator = input("what is the operator? (+, -, x, / )? ")
+        value2 = int(input("what is the second value? "))
 
-        if operador == '+':
-            print(valor1+valor2)
-        elif operador == '-':
-            print(valor1-valor2)
-        elif operador == 'x':
-            print(valor1*valor2)
-        elif operador == '/':
-            print(valor1/valor2)
+        if operator == "+":
+            print(value1 + value2)
+        elif operator == "-":
+            print(value1 - value2)
+        elif operator == "x":
+            print(value1 * value2)
+        elif operator == "/":
+            print(value1 / value2)
         else:
-            print('o operador deve conter na lista!')
+            print("the operator must be in the list!")
 
         break
 
     except:
-        print('o valor deve ser um numero!')
+        print("the value must be a number!")

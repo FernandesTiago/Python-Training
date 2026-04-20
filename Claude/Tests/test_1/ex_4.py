@@ -1,28 +1,28 @@
-# Crie uma função que recebe uma lista de dicionários de alunos
-# (cada um com 'nome' e 'nota') e retorna apenas os aprovados
-# (nota >= 6).
-# Imprima os aprovados formatados com nome alinhado à esquerda
-# em 15 caracteres e nota com 1 casa decimal.
+# Create a function that receives a list of student dictionaries
+# (each with "name" and "grade") and returns only the passing ones
+# (grade >= 6).
+# Print the passing students formatted with name left-aligned
+# in 15 characters and grade with 1 decimal place.
 
-# Teste com:
-alunos = [
-    {'nome': 'Ana', 'nota': 8.0},
-    {'nome': 'Bruno', 'nota': 4.5},
-    {'nome': 'Carla', 'nota': 6.0},
-    {'nome': 'Diego', 'nota': 3.0},
-    {'nome': 'Elena', 'nota': 9.5}
+# Test with:
+students = [
+    {"name": "Ana", "grade": 8.0},
+    {"name": "Bruno", "grade": 4.5},
+    {"name": "Carla", "grade": 6.0},
+    {"name": "Diego", "grade": 3.0},
+    {"name": "Elena", "grade": 9.5}
 ]
 
-def alunos_aprovados(lista_alunos):
-    """RECEBE UMA LISTA DE DICIONARIOS DE ALUNOS E RETORNA A LISTA DOS APROVADOS"""
-    alunos_aprovados = []
-    for aluno in alunos:
-        if aluno['nota'] >= 6:
-            alunos_aprovados.append(aluno)
-    return alunos_aprovados
+def passing_students(student_list):
+    """RECEIVES A LIST OF STUDENT DICTIONARIES AND RETURNS THE LIST OF PASSING ONES"""
+    passed = []
+    for student in student_list:
+        if student["grade"] >= 6:
+            passed.append(student)
+    return passed
 
-alunos_aprovados = alunos_aprovados(alunos)
+passed_list = passing_students(students)
 
-print('Alunos aprovados:')
-for i in range(0, len(alunos_aprovados)):
-    print(f'Aluno: {alunos_aprovados[i]['nome']:<15} Nota: {alunos_aprovados[i]['nota']:.1f}')
+print("Passing students:")
+for i in range(0, len(passed_list)):
+    print(f"Student: {passed_list[i]['name']:<15} Grade: {passed_list[i]['grade']:.1f}")

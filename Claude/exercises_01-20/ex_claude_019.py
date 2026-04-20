@@ -1,64 +1,68 @@
 import json
+from pathlib import Path
 
-def carregar_dados():
-    """RETORNA OS DADOS DO JSON"""
-    with open('dados19.json', 'r') as arquivo:
-        dados = json.load(arquivo)
-        return dados
-    
-def salvar_dados(dados):
-    """SALVA OS DADOS () NO ARQUIVO"""
-    with open('dados19.json', 'w') as arquivo:
-        json.dump(dados, arquivo)
+DATA_FILE = Path(__file__).parent / "data19.json"
 
-def deletar_dados():
-    """DELETA A LISTA COMPLETA"""
-    with open('dados19.json', 'w'):
+
+def load_data():
+    """RETURNS DATA FROM JSON"""
+    with open(DATA_FILE, "r") as file:
+        data = json.load(file)
+        return data
+
+def save_data(data):
+    """SAVES DATA () TO FILE"""
+    with open(DATA_FILE, "w") as file:
+        json.dump(data, file)
+
+def delete_data():
+    """DELETES THE WHOLE LIST"""
+    with open(DATA_FILE, "w"):
         pass
 
-def printar(txt):
-    """PRINTA A LISTA DE MANEIRA ORGANIZADO"""
-    texto = sorted(txt, key=lambda x: x['pontuacao'], reverse=True)
-    for i in range(0, len(texto)):
-        print(f'Nome: {texto[i]['nome']:<10} Pontuação: {texto[i]['pontuacao']}')
+def display(txt):
+    """PRINTS THE LIST IN AN ORGANIZED WAY"""
+    text = sorted(txt, key=lambda x: x["score"], reverse=True)
+    for i in range(0, len(text)):
+        print(f"Name: {text[i]['name']:<10} Score: {text[i]['score']}")
 
-placar = [
-    {'nome':'Mocotó', 'pontuacao': 2000},
-    {'nome':'Tiago', 'pontuacao': 2500},
-    {'nome':'Mari', 'pontuacao': 1750},
-    {'nome':'Juliana', 'pontuacao': 3000}
+leaderboard = [
+    {"name": "Mocotó", "score": 2000},
+    {"name": "Tiago", "score": 2500},
+    {"name": "Mari", "score": 1750},
+    {"name": "Juliana", "score": 3000}
 ]
 
 while True:
     try:
-        texto = carregar_dados()
-        print('\nTabela do torneio\n')
-        printar(texto)
+        text = load_data()
+        print("\nTournament table\n")
+        display(text)
         break
     except (FileNotFoundError, json.JSONDecodeError):
-        salvar_dados(placar)
+        save_data(leaderboard)
 
 while True:
-    adicionar = input('Deseja adicionar um novo jogador? (S/N/D) ').strip().title()
-    if adicionar == 'S':
-        jogador = input('Qual o nome do jogador? ').title().strip()
+    add = input("Do you want to add a new player? (Y/N/D) ").strip().title()
+    if add == "Y":
+        player = input("What is the player name? ").title().strip()
         while True:
             try:
-                pontuacao = int(input('Qual a pontuacao? '))
+                score = int(input("What is the score? "))
                 break
             except ValueError:
-                print('Digite um numero inteiro!')
-        dic_jogador = {'nome': jogador, 'pontuacao': pontuacao}
-        texto.append(dic_jogador)
-        print('\nTabela do torneio\n')
-        printar(texto)
-        salvar_dados(texto)
+                print("Enter an integer!")
+        player_dict = {"name": player, "score": score}
+        text.append(player_dict)
+        print("\nTournament table\n")
+        display(text)
+        save_data(text)
         break
-    elif adicionar == 'D':
-        deletar_dados()
+    elif add == "D":
+        delete_data()
         break
-    elif adicionar == 'N':
-        print('Nada adicionado!')
+    elif add == "N":
+        print("Nothing added!")
         break
     else:
-        print('Digite S, N ou D!!')
+        print("Enter Y, N or D!!")

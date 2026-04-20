@@ -1,16 +1,14 @@
-# emprestimo bancario para compra de casa
+# bank loan to buy a house
 
-casa = float(input('Qual o valor da casa? R$'))
-salario = float(input('qual seu salario? R$'))
-anos = int(input('em quantos anos deseja pagar a casa? '))
+house = float(input("What is the house price? R$"))
+salary = float(input("what is your salary? R$"))
+years = int(input("in how many years do you want to pay for the house? "))
 
-prestacao = casa / (anos * 12)
-saldo_maximo = salario * 30 / 100
+installment = house / (years * 12)
+max_balance = salary * 30 / 100
 
-if prestacao < saldo_maximo:
-    print(f'voce \033[32mpode \033[mfinanciar a casa e deve pagar \033[30;42mR${prestacao:.2f}\033[m de prestacao.')
+if installment < max_balance:
+    print(f"you \033[32mcan \033[mfinance the house and must pay \033[30;42mR${installment:.2f}\033[m per installment.")
 else:
-    print(f'Voce \033[31mnao \033[mpode financiar a casa.')
-    print(f'O valor da prestacao eh de \033[32mR${prestacao:.2f}\033[m e o valor maximo que voce pode pagar eh \033[32mR${saldo_maximo:.2f}\033[m')
-
-
+    print(f"You \033[31mcannot \033[mfinance the house.")
+    print(f"The installment value is \033[32mR${installment:.2f}\033[m and the maximum value you can pay is \033[32mR${max_balance:.2f}\033[m")

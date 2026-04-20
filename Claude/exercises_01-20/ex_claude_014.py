@@ -1,45 +1,45 @@
-# controle de vendas
+# sales control
 
-def cadastrar_venda(vendedor, produto, valor):
-    venda = {'vendedor': vendedor, 'produto': produto, 'valor': valor}
-    return venda
-def total_por_vendedor(lista_vendas, nome):
-    soma = 0
-    for venda in lista_vendas:
-        if venda['vendedor'] == nome:
-            soma += venda['valor']
-    return soma
-def maior_venda(lista_vendas):
-    venda_maxima = 0
-    dic_venda_maxima = {}
-    for venda in lista_vendas:
-        if venda['valor'] > venda_maxima:
-            venda_maxima = venda['valor']
-            dic_venda_maxima = venda
-    return dic_venda_maxima
+def register_sale(seller, product, value):
+    sale = {"seller": seller, "product": product, "value": value}
+    return sale
+def total_by_seller(sale_list, name):
+    total = 0
+    for sale in sale_list:
+        if sale["seller"] == name:
+            total += sale["value"]
+    return total
+def biggest_sale(sale_list):
+    max_value = 0
+    max_sale = {}
+    for sale in sale_list:
+        if sale["value"] > max_value:
+            max_value = sale["value"]
+            max_sale = sale
+    return max_sale
 
-def resumo(lista_vendas):
-    nomes_printados = []
+def summary(sale_list):
+    printed_names = []
     print()
-    for venda in lista_vendas:
-        print(f'Vendedor: {venda['vendedor']:<10} Produto: {venda['produto']:<10} Valor: R$ {venda['valor']:>8.2f}')
+    for sale in sale_list:
+        print(f"Seller: {sale['seller']:<10} Product: {sale['product']:<10} Value: $ {sale['value']:>8.2f}")
     print()
-    for venda in lista_vendas:
-        vendedor = venda['vendedor']
-        if vendedor not in nomes_printados:
-            print(f'Total de vendas do(a) {venda['vendedor']}: R$ {total_por_vendedor(lista_vendas, vendedor):.2f}')
-            nomes_printados.append(vendedor)
-    venda_do_dia = maior_venda(lista_vendas)
+    for sale in sale_list:
+        seller = sale["seller"]
+        if seller not in printed_names:
+            print(f"Total sales by {sale['seller']}: $ {total_by_seller(sale_list, seller):.2f}")
+            printed_names.append(seller)
+    sale_of_the_day = biggest_sale(sale_list)
     print()
-    print(f'A maior venda do dia foi de R$ {venda_do_dia['valor']:.2f} vendida por {venda_do_dia['vendedor']}')
+    print(f"The biggest sale of the day was $ {sale_of_the_day['value']:.2f} made by {sale_of_the_day['seller']}")
 
-venda1 = cadastrar_venda('Ana', 'Notebook', 3200.00)
-venda2 = cadastrar_venda('Carlos','Mouse',150.00)
-venda3 = cadastrar_venda('Ana','Teclado',280.00)
-venda4 = cadastrar_venda('Maria','Monitor',1100.00)
-venda5 = cadastrar_venda('Carlos','Notebook',3200.00)
-venda6 = cadastrar_venda('Maria','Headset',420.00)
+sale1 = register_sale("Ana", "Notebook", 3200.00)
+sale2 = register_sale("Carlos", "Mouse", 150.00)
+sale3 = register_sale("Ana", "Keyboard", 280.00)
+sale4 = register_sale("Maria", "Monitor", 1100.00)
+sale5 = register_sale("Carlos", "Notebook", 3200.00)
+sale6 = register_sale("Maria", "Headset", 420.00)
 
-vendas = [venda1, venda2, venda3, venda4, venda5, venda6]
+sales = [sale1, sale2, sale3, sale4, sale5, sale6]
 
-resumo(vendas)
+summary(sales)

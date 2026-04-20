@@ -1,13 +1,13 @@
-# checar se uma palavra eh um polindromo
+# check if a word is a palindrome
 
 while True:
-    p = input('Escreva uma palavra ').upper().replace(' ','')
-    if p.isnumeric() or p.isdigit() or p.find('.') != -1 or p == '':
-        print('digite uma frase')
+    p = input("Write a word ").upper().replace(" ", "")
+    if p.isnumeric() or p.isdigit() or p.find(".") != -1 or p == "":
+        print("enter a phrase")
     else:
         break
 pi = p[::-1]
 if p == pi:
-    print('eh um polindro')
+    print("it is a palindrome")
 else:
-    print('nao eh um polindro')
+    print("it is not a palindrome")

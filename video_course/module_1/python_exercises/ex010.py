@@ -1,2 +1,2 @@
-n = float(input('quantos reais voce tem? '))
-print(f'Com R${n} voce pode comprar U${n/3.27:.2f}')
+n = float(input("how many reais do you have? "))
+print(f"With R${n} you can buy US${n/3.27:.2f}")

@@ -1,20 +1,20 @@
-# contador de pessoas com mais de 18 anos
+# counter of people over 18 years old
 
 from datetime import date
 
-ano_atual = date.today().year
-anos = 0
+current_year = date.today().year
+adults = 0
 
-for c in range(1,8):
+for c in range(1, 8):
     while True:
         try:
-            ano_nascimento = int(input('quando voce nasceu? '))
+            birth_year = int(input("when were you born? "))
             break
         except ValueError:
-            print('digite um numero')
-    if ano_atual - ano_nascimento >= 18:
-        anos += 1
-if anos > 0:
-    print(f'{anos} pessoas sao 18+')
+            print("enter a number")
+    if current_year - birth_year >= 18:
+        adults += 1
+if adults > 0:
+    print(f"{adults} people are 18+")
 else:
-    print('ninguem eh 18+')
+    print("no one is 18+")

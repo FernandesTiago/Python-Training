@@ -1,10 +1,10 @@
-# Media de alunos usando dicionario
+# Student average using dictionary
 
-aluno1 = {'nome': 'Tiago','notas': [7, 8, 9]}
-aluno2 = {'nome': 'Juliana','notas': [2, 4, 8]}
-aluno3 = {'nome': 'Mari','notas': [9, 2, 6]}
+student1 = {"name": "Tiago", "grades": [7, 8, 9]}
+student2 = {"name": "Juliana", "grades": [2, 4, 8]}
+student3 = {"name": "Mari", "grades": [9, 2, 6]}
 
-alunos =[aluno1, aluno2, aluno3]
+students = [student1, student2, student3]
 
-for aluno in alunos:
-    print(f" A media de {aluno['nome']} eh {sum(aluno['notas']) / len(aluno['notas']):.2f}")
+for student in students:
+    print(f" The average of {student['name']} is {sum(student['grades']) / len(student['grades']):.2f}")

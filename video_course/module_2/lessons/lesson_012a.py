@@ -1,10 +1,10 @@
-nome = input('Digite o seu nome: ').strip().title()
+name = input("Enter your name: ").strip().title()
 
-print(nome)
+print(name)
 
-if 'Tiago' in nome:
-    print('Que nome bonito!')
-elif 'Paulo' in nome:
-    print('nome estranho...')
+if "Tiago" in name:
+    print("What a beautiful name!")
+elif "Paulo" in name:
+    print("strange name...")
 else:
-    print('vc eh generico...') 
+    print("you are generic...")

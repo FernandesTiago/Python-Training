@@ -1,4 +1,4 @@
-# soma de todos numeros impares divisiveis por 3 ate 500
+# sum of all odd numbers divisible by 3 up to 500
 
 s = 0
 for c in range(1, 501, 2):

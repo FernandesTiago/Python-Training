@@ -1,32 +1,32 @@
-# media de numeros, pergunta de continuacao, maior, menor
+# average of numbers, continue prompt, largest, smallest
 
 while True:
     try:
-        v = int(input('digite um valor: '))
-        soma = maior = menor = v
-        quantidade = 1
+        v = int(input("enter a value: "))
+        total = largest = smallest = v
+        count = 1
         break
     except ValueError:
-        print('Valor invalido')
+        print("Invalid value")
 while True:
-    v = input('''Se nao desejar continuar digite ( sair )
-digite outro valor: ''')
+    v = input("""If you don't want to continue type ( exit )
+enter another value: """)
     try:
         v = int(v)
-        soma += v
-        quantidade += 1
-        if v > maior:
-            maior = v
-        if v < menor:
-            menor = v
+        total += v
+        count += 1
+        if v > largest:
+            largest = v
+        if v < smallest:
+            smallest = v
     except ValueError:
         v = v.strip().upper()
-        if v == 'SAIR':
+        if v == "EXIT":
             break
         else:
-            print('Valor invalido')
-print(f'''
-A media dos valores eh de {soma/quantidade}
-O maior valor foi {maior}
-O menor valor foi {menor}
-''')
+            print("Invalid value")
+print(f"""
+The average of the values is {total/count}
+The largest value was {largest}
+The smallest value was {smallest}
+""")

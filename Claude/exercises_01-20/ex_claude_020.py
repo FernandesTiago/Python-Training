@@ -1,19 +1,24 @@
 # try except else
 
-def ler_numero_do_arquivo(caminho):
-    try:
-        arquivo = open(caminho, 'r')
-        try:
-            numero = float(arquivo.readline())
-        except ValueError:
-            print('Conteudo nao eh um numero')
-        else:
-            return numero
-        finally:
-            arquivo.close()
-    except FileNotFoundError:
-        print('Arquivo nao encontrado')
+from pathlib import Path
 
-ler = ler_numero_do_arquivo('dados20.txt')
-if ler:
-    print(ler)
+DATA_FILE = Path(__file__).parent / "data20.txt"
+
+
+def read_number_from_file(path):
+    try:
+        file = open(path, "r")
+        try:
+            number = float(file.readline())
+        except ValueError:
+            print("Content is not a number")
+        else:
+            return number
+        finally:
+            file.close()
+    except FileNotFoundError:
+        print("File not found")
+
+result = read_number_from_file(DATA_FILE)
+if result:
+    print(result)

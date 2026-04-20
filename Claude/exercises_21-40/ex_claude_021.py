@@ -1,21 +1,21 @@
 # starting learning class
 
-class Jogador:
-    def __init__(self, nome):
-        self.nome = nome
-        self.pontuacao = 0
-    def adicionar_pontos(self, quantidade):
-        self.pontuacao += quantidade
-    def resetar(self):
-        self.pontuacao = 0
+class Player:
+    def __init__(self, name):
+        self.name = name
+        self.score = 0
+    def add_points(self, amount):
+        self.score += amount
+    def reset(self):
+        self.score = 0
     def __str__(self):
-        return f'{self.nome} Pontuacao:{self.pontuacao}'
+        return f"{self.name} Score:{self.score}"
 
-jogador1 = Jogador('Tiago')
-jogador2 = Jogador('Juliana')
+player1 = Player("Tiago")
+player2 = Player("Juliana")
 
-jogador1.adicionar_pontos(100)
-jogador1.resetar()
-jogador2.adicionar_pontos(500)
-print(jogador2)
-print(jogador1)
+player1.add_points(100)
+player1.reset()
+player2.add_points(500)
+print(player2)
+print(player1)

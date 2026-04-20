@@ -1,41 +1,46 @@
-# lista de jogadores em arquivo .txt
+# player list in a .txt file
+
+from pathlib import Path
+
+DATA_FILE = Path(__file__).parent / "data18.txt"
+
 
 try:
-    with open('dados18.txt', 'r') as arquivo:
-        lista = arquivo.read()
-        if not lista:
-            print('Lista de jogadores vazia')
+    with open(DATA_FILE, "r") as file:
+        content = file.read()
+        if not content:
+            print("Player list is empty")
         else:
-            print(lista)
+            print(content)
 except FileNotFoundError:
-    with open('dados18.txt', 'a'):
+    with open(DATA_FILE, "a"):
         pass
-    print('Lista de jogadores vazia')
+    print("Player list is empty")
 
-with open('dados18.txt', 'a') as arquivo:
-    nome = input('Qual o nome que deseja adicionar? ').title().strip()
-    if nome == 'D':
-        with open('dados18.txt', 'w'):
+with open(DATA_FILE, "a") as file:
+    name = input("What name do you want to add? ").title().strip()
+    if name == "D":
+        with open(DATA_FILE, "w"):
             pass
         exit()
     else:
         while True:
             try:
-                pontuacao = int(input('Qual a pontuacao dele(a): '))
-                print(f'{nome}, {pontuacao} Foi adicionado!')
-                arquivo.write(f'{nome}, {pontuacao}\n')
+                score = int(input("What is their score: "))
+                print(f"{name}, {score} was added!")
+                file.write(f"{name}, {score}\n")
                 break
             except ValueError:
-                print('Digite um numero inteiro!')
+                print("Enter an integer!")
 
-with open('dados18.txt', 'r') as arquivo:
-    lista_atualizada = arquivo.readlines()
-    lista_ordenada = []
-    for i in range(0,len(lista_atualizada)):
-        jogador = lista_atualizada[i].split()
-        jogador[0] = jogador[0].replace(',', '')
-        jogador[1] = int(jogador[1])
-        lista_ordenada.append(jogador)
-    lista_ordenada = sorted(lista_ordenada, key=lambda x: x[1], reverse=True)
-    for nomes in lista_ordenada:
-        print(f'O jogador(a) {nomes[0]} Pontuou: {nomes[1]} pontos!!')
+with open(DATA_FILE, "r") as file:
+    updated_list = file.readlines()
+    sorted_list = []
+    for i in range(0, len(updated_list)):
+        player = updated_list[i].split()
+        player[0] = player[0].replace(",", "")
+        player[1] = int(player[1])
+        sorted_list.append(player)
+    sorted_list = sorted(sorted_list, key=lambda x: x[1], reverse=True)
+    for entry in sorted_list:
+        print(f"Player {entry[0]} scored: {entry[1]} points!!")

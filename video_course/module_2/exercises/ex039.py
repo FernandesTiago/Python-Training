@@ -1,27 +1,27 @@
-#  analizar o ano de nascimento de um Homem e verificar a relacao de recrutamente militar
+# analyze a man's birth year and check military enlistment status
 
 import datetime
 
-ano_atual = datetime.date.today().year
+current_year = datetime.date.today().year
 
 while True:
 
-    ano = input('Digite seu ano de nascimento: ')
+    year = input("Enter your birth year: ")
 
-    if ano.isnumeric():
-        ano = int(ano)
-        if 1900 <= ano <= ano_atual:
+    if year.isnumeric():
+        year = int(year)
+        if 1900 <= year <= current_year:
             break
         else:
-            print(f'O ano deve estar entre \033[32m1900\033[m e \033[32m{ano_atual}\033[m')
+            print(f"The year must be between \033[32m1900\033[m and \033[32m{current_year}\033[m")
     else:
-        print('O ano deve ser um numero inteiro.')
+        print("The year must be an integer.")
 
-idade = ano_atual - ano
+age = current_year - year
 
-if idade < 18:
-    print(f'Voce tem \033[32m{18 - idade}\033[m anos para se alistar.')
-elif idade == 18:
-    print(f'\033[32mVoce se alista esse ano.\033[m')
+if age < 18:
+    print(f"You have \033[32m{18 - age}\033[m years to enlist.")
+elif age == 18:
+    print(f"\033[32mYou must enlist this year.\033[m")
 else:
-    print(f'voce tinha que se alistar \033[32m{idade - 18}\033[m anos atras.')
+    print(f"you should have enlisted \033[32m{age - 18}\033[m years ago.")

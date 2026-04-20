@@ -1,77 +1,81 @@
-# cadastro de funcionario
+# employee registration
 
 import json
+from pathlib import Path
 
-class Funcionario:
-    def __init__(self, nome, salario):
-        self.nome = nome
-        self.salario = salario
+DATA_FILE = Path(__file__).parent / "data24.json"
+
+
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
     def __str__(self):
-        return f'Funcionario: {self.nome} | Salario: R$ {self.salario}'
+        return f"Employee: {self.name} | Salary: $ {self.salary}"
 
-def deletar_dados():
-    with open('dados24.json', 'w') as arquivo:
-        json.dump([], arquivo)
+def delete_data():
+    with open(DATA_FILE, "w") as file:
+        json.dump([], file)
 
-def printar():
-    with open('dados24.json','r') as arquivo:
-        texto = json.load(arquivo)
-        print(f'Lista completa: {texto}')
+def display():
+    with open(DATA_FILE, "r") as file:
+        content = json.load(file)
+        print(f"Full list: {content}")
 
-def salvar_funcionario(funcionario):
+def save_employee(employee):
     try:
-        with open('dados24.json','r') as arquivo:
-            texto = json.load(arquivo)
+        with open(DATA_FILE, "r") as file:
+            content = json.load(file)
     except (FileNotFoundError, json.JSONDecodeError):
-        print('Lista vazia')
-        with open('dados24.json','w') as arquivo:
-            texto = []
-            json.dump(texto, arquivo)  
+        print("List is empty")
+        with open(DATA_FILE, "w") as file:
+            content = []
+            json.dump(content, file)
     else:
-        with open('dados24.json', 'w') as arquivo:
-            dic = {'nome': funcionario.nome, 'salario': funcionario.salario}
-            texto.append(dic)
-            json.dump(texto, arquivo)
-        with open('dados24.json', 'r') as arquivo:
-                texto = json.load(arquivo)
+        with open(DATA_FILE, "w") as file:
+            entry = {"name": employee.name, "salary": employee.salary}
+            content.append(entry)
+            json.dump(content, file)
+        with open(DATA_FILE, "r") as file:
+            content = json.load(file)
 
 
 while True:
-        try:
-            printar()
-            break
-        except (FileNotFoundError, json.JSONDecodeError):
-            print('Lista vazia')
-            with open('dados24.json','w') as arquivo:
-                texto = []
-                json.dump(texto, arquivo)   
+    try:
+        display()
+        break
+    except (FileNotFoundError, json.JSONDecodeError):
+        print("List is empty")
+        with open(DATA_FILE, "w") as file:
+            content = []
+            json.dump(content, file)
 
-while True:                
-    escolha = input('Deseja adicionar mais pessoas? (S,N,D) ').title().strip()
-    if escolha == 'S':
-        nome = input('Qual o nome? ')
+while True:
+    choice = input("Do you want to add more people? (Y,N,D) ").title().strip()
+    if choice == "Y":
+        name = input("What is the name? ")
         while True:
             try:
-                salario = int(input('Qual o salario? '))
+                salary = int(input("What is the salary? "))
                 break
             except ValueError:
-                print('Digite um numero inteiro!')
-        dev = Funcionario(nome,salario)
-        salvar_funcionario(dev)
-    elif escolha == 'N':
+                print("Enter an integer!")
+        dev = Employee(name, salary)
+        save_employee(dev)
+    elif choice == "N":
         break
-    elif escolha == 'D':
-        deletar_dados()
+    elif choice == "D":
+        delete_data()
     else:
-        print('Digite S, N ou D!')
+        print("Enter Y, N or D!")
 
-printar()
+display()
 
-with open('dados24.json', 'r') as arquivo:
-    texto = json.load(arquivo)
-    funcionarios = []
-    for item in texto:
-        obj = Funcionario(item['nome'], item['salario'])
-        funcionarios.append(obj)
-for funcionario in funcionarios:
-    print(funcionario)
+with open(DATA_FILE, "r") as file:
+    content = json.load(file)
+    employees = []
+    for item in content:
+        obj = Employee(item["name"], item["salary"])
+        employees.append(obj)
+for employee in employees:
+    print(employee)

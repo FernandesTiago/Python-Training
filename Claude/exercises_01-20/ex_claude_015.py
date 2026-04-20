@@ -1,49 +1,49 @@
-def cadastrar_livro(titulo, autor, ano, disponivel):
-    livro = {'titulo': titulo, 'autor': autor, 'ano': ano, 'disponivel': disponivel}
-    return livro
+def register_book(title, author, year, available):
+    book = {"title": title, "author": author, "year": year, "available": available}
+    return book
 
-def livros_disponiveis(acervo_livros):
-    list_livros_disponiveis = []
-    for livro in acervo_livros:
-        if livro['disponivel']:
-            list_livros_disponiveis.append(livro)
-    return list_livros_disponiveis
+def available_books(book_collection):
+    available_list = []
+    for book in book_collection:
+        if book["available"]:
+            available_list.append(book)
+    return available_list
 
-def buscar_por_autor(acervo_livros, autor):
-    livros_do_autor = []
-    for livro in acervo_livros:
-        if livro['autor'] == autor:
-            livros_do_autor.append(livro)
-    return livros_do_autor
+def search_by_author(book_collection, author):
+    author_books = []
+    for book in book_collection:
+        if book["author"] == author:
+            author_books.append(book)
+    return author_books
 
-def livro_mais_antigo(acervo_livros):
-    livro_antigo = 10000
-    dic_livro_antigo = 0
-    for livro in acervo_livros:
-        if livro['ano'] < livro_antigo:
-            livro_antigo = livro['ano']
-            dic_livro_antigo = livro
-    return dic_livro_antigo
+def oldest_book(book_collection):
+    oldest_year = 10000
+    oldest = 0
+    for book in book_collection:
+        if book["year"] < oldest_year:
+            oldest_year = book["year"]
+            oldest = book
+    return oldest
 
-def resumo(acervo_livros):
-    quantidade_disponivel = 0
+def summary(book_collection):
+    available_count = 0
     print()
-    for livro in acervo_livros:
-        disponivel = livro['disponivel']
-        status = 'disponivel' if disponivel else 'indisponivel'
-        print(f'Livro: {livro['titulo']:<20} Autor: {livro['autor']:20} Ano: {livro['ano']:^6} Disponibilidade: {status:<10}')
-        if disponivel:
-            quantidade_disponivel += 1
-    print(f'\n{quantidade_disponivel} livro estao disponiveis')
-    livro_antigo = livro_mais_antigo(acervo_livros)
-    print(f'\nO mais antigo eh {livro_antigo['titulo']}')
+    for book in book_collection:
+        available = book["available"]
+        status = "available" if available else "unavailable"
+        print(f"Book: {book['title']:<20} Author: {book['author']:20} Year: {book['year']:^6} Availability: {status:<10}")
+        if available:
+            available_count += 1
+    print(f"\n{available_count} books are available")
+    oldest = oldest_book(book_collection)
+    print(f"\nThe oldest is {oldest['title']}")
 
-acervo = [
-    cadastrar_livro('Dom Casmurro', 'Machado de Assis', 1899, True),
-    cadastrar_livro('O Cortico', 'Aluisio Azevedo', 1890, False),
-    cadastrar_livro('Iracema', 'Jose de Alencar', 1865, True),
-    cadastrar_livro('Memorias Postumas', 'Machado de Assis', 1881, False),
-    cadastrar_livro('O Guarani', 'Jose de Alencar', 1857, True),
+collection = [
+    register_book("Dom Casmurro", "Machado de Assis", 1899, True),
+    register_book("O Cortico", "Aluisio Azevedo", 1890, False),
+    register_book("Iracema", "Jose de Alencar", 1865, True),
+    register_book("Memorias Postumas", "Machado de Assis", 1881, False),
+    register_book("O Guarani", "Jose de Alencar", 1857, True),
 ]
 
-resumo(acervo)
+summary(collection)

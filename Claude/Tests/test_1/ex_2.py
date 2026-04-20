@@ -1,12 +1,12 @@
-# Crie um dicionário representando um produto com as chaves:
-# 'nome', 'preco', 'disponivel' (booleano)
+# Create a dictionary representing a product with the keys:
+# "name", "price", "available" (boolean)
 #
-# Depois imprima uma linha formatada assim:
-# Produto: Teclado | Preço: R$ 150.00 | Disponível: Sim
+# Then print a line formatted like this:
+# Product: Keyboard | Price: $ 150.00 | Available: Yes
 
-produto = {'produto': 'Teclado', 'preço': 150, 'disponivel': True}
+product = {"name": "Keyboard", "price": 150, "available": True}
 
-disponivel = produto['disponivel']
-disponibilidade = 'Sim' if disponivel else 'Não'
+available = product["available"]
+availability = "Yes" if available else "No"
 
-print(f'Produto: {produto['produto']} | Preço: R$ {produto['preço']:.2f} | Disponivel: {disponibilidade}')
+print(f"Product: {product['name']} | Price: $ {product['price']:.2f} | Available: {availability}")

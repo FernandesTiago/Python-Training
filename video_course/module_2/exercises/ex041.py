@@ -1,40 +1,40 @@
-# Categoria atletica de acordo com a idade no esporte
+# Athletic category based on age in the sport
 
 from datetime import date
 
-ano_atual = date.today().year
+current_year = date.today().year
 
 while True:
     try:
-        ano = int(input('Quando voce nasceu? '))
-        if 1900 <= ano <= ano_atual:
+        year = int(input("When were you born? "))
+        if 1900 <= year <= current_year:
             break
         else:
-            print(f'O deve ser um ano entre 1900 e {ano_atual}.')
+            print(f"It must be a year between 1900 and {current_year}.")
     except ValueError:
-        print(f'O deve ser um ano entre 1900 e {ano_atual}.')
+        print(f"It must be a year between 1900 and {current_year}.")
 
-idade = ano_atual - ano
+age = current_year - year
 
 while True:
     try:
-        idade_natacao = int(input('com quantos anos voce comecou a natacao? '))
-        if idade_natacao <= idade:
+        swim_age = int(input("at what age did you start swimming? "))
+        if swim_age <= age:
             break
         else:
-            print(f'Voce treina a mais tempo que e vivo...')
+            print(f"You have been training longer than you've been alive...")
     except ValueError:
-        print(f'O valor deve ser Menor que sua idade.')
+        print(f"The value must be less than your age.")
 
-anos_de_natacao = idade - idade_natacao
+years_swimming = age - swim_age
 
-if anos_de_natacao <= 1:
-    print('MIRIM')
-elif anos_de_natacao <= 2:
-    print('INFANTIL')
-elif anos_de_natacao <= 3:
-    print('JUNIOR')
-elif anos_de_natacao <= 4:
-    print('SENIOR')
+if years_swimming <= 1:
+    print("JUVENILE")
+elif years_swimming <= 2:
+    print("CHILD")
+elif years_swimming <= 3:
+    print("JUNIOR")
+elif years_swimming <= 4:
+    print("SENIOR")
 else:
-    print('MASTER')
+    print("MASTER")

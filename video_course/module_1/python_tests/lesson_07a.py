@@ -1,8 +1,8 @@
-n1 = int(input('um valor: '))
-n2 = int(input('outro valor: '))
+n1 = int(input("a value: "))
+n2 = int(input("another value: "))
 
 s = n1 + n2
 m = n1 * n2
 d = n1 / n2
 
-print(f'a soma vale {s}, a multiplicacao vale {m} e a divisao vale {d:.3f}')
+print(f"the sum is {s}, the multiplication is {m} and the division is {d:.3f}")

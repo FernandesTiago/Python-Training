@@ -1,8 +1,8 @@
-# Usar dicionario para escrever nome idade e cidade
+# Use dictionary to write name, age and city
 
-dados = {'nome': 'Tiago', 'idade': 23, 'cidade': 'Sao Paulo'}
+data = {"name": "Tiago", "age": 23, "city": "Sao Paulo"}
 
-print(f'''Nome: {dados['nome']}
-Idade: {dados['idade']}
-Cidade: {dados['cidade']}
-''')
+print(f"""Name: {data["name"]}
+Age: {data["age"]}
+City: {data["city"]}
+""")

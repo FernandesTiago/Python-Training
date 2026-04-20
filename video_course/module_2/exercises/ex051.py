@@ -1,17 +1,17 @@
-# Progressao aritimetica
+# Arithmetic progression
 
 while True:
     try:
-        pt = int(input('qual o primeito termo? '))
+        first_term = int(input("what is the first term? "))
         break
     except ValueError:
-        print('digite um numero inteiro')
+        print("enter an integer")
 while True:
     try:
-        razao = int(input('qual a razao? '))
+        ratio = int(input("what is the common difference? "))
         break
     except ValueError:
-        print('digite um numero inteiro')
+        print("enter an integer")
 
-for c in range(pt, pt+razao*10, razao):
+for c in range(first_term, first_term + ratio * 10, ratio):
     print(c)

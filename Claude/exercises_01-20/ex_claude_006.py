@@ -1,15 +1,15 @@
-# cadastro de pessoa sem menu ou input
+# person registration without menu or input
 
-cadastro = {'nome': 'tiago','email': 'castelantiago@gmail.com','idade': 23}
-print(f"Nome: {cadastro['nome']} Email: {cadastro['email']} Idade: {cadastro['idade']}")
+profile = {"name": "tiago", "email": "castelantiago@gmail.com", "age": 23}
+print(f"Name: {profile['name']} Email: {profile['email']} Age: {profile['age']}")
 
-cadastro.update({'email': 'castelantiago2@gmail.com', 'idade': 24})
-print(f"Nome: {cadastro['nome']} Email: {cadastro['email']} Idade: {cadastro['idade']}")
+profile.update({"email": "castelantiago2@gmail.com", "age": 24})
+print(f"Name: {profile['name']} Email: {profile['email']} Age: {profile['age']}")
 
-cadastro['telefone'] = '(11) 99938-0440'
-if cadastro.get('telefone'):
-    print(f"Nome: {cadastro['nome']} Email: {cadastro['email']} Idade: {cadastro['idade']} Telefone: {cadastro['telefone']}")
+profile["phone"] = "(11) 99938-0440"
+if profile.get("phone"):
+    print(f"Name: {profile['name']} Email: {profile['email']} Age: {profile['age']} Phone: {profile['phone']}")
 
-del cadastro['telefone']
-print(f"Nome: {cadastro['nome']} Email: {cadastro['email']} Idade: {cadastro['idade']}", end=' ')
-print(f"Telefone: {cadastro.get('telefone', 'N/A')}")
+del profile["phone"]
+print(f"Name: {profile['name']} Email: {profile['email']} Age: {profile['age']}", end=" ")
+print(f"Phone: {profile.get('phone', 'N/A')}")

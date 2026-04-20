@@ -1,20 +1,20 @@
-# Você tem esta lista de dicionários:
-estoque = [
-    {'nome': 'Caneta', 'qtd': 5},
-    {'nome': 'Caderno', 'qtd': 12},
-    {'nome': 'Borracha', 'qtd': 3}
+# You have this list of dictionaries:
+stock = [
+    {"name": "Pen", "qty": 5},
+    {"name": "Notebook", "qty": 12},
+    {"name": "Eraser", "qty": 3}
 ]
-# Ordene a lista por quantidade (menor pra maior) e imprima
-# cada item assim:
-# Caneta — 5 unidades
+# Sort the list by quantity (smallest to largest) and print
+# each item like this:
+# Pen - 5 units
 
 
 
-estoque = sorted(estoque, key=lambda x: x['qtd'], reverse=False)
-# Nao vou mentir que aqui me confundi com o lambda, o x[1] como usei em outro exercicio nao funcionava 
-# So cheguei a pesquisar por sem um fundamento novo que vi no ultimo exercicio e só usei uma vez, e vi que nesse caso posso usar o 
-# nome da Key do dic
+stock = sorted(stock, key=lambda x: x["qty"], reverse=False)
+# Honestly I got confused with lambda here, the x[1] I used in another exercise didn't work
+# I had to look it up without a new fundamental I saw in the last exercise and only used once, and I saw that in this case
+# I can use the name of the dict key
 
 
-for i in range(0, len(estoque)):
-    print(f'{estoque[i]['nome']} - {estoque[i]['qtd']} Unidades')
+for i in range(0, len(stock)):
+    print(f"{stock[i]['name']} - {stock[i]['qty']} Units")

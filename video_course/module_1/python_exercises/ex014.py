@@ -1,2 +1,2 @@
-c = float(input('quantos graus estao? '))
-print(f'A temperatura em F e de {(c * (9/5)) + 32:.1f}')
+c = float(input("how many degrees are there? "))
+print(f"The temperature in F is {(c * (9/5)) + 32:.1f}")

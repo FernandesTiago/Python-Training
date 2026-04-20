@@ -1,19 +1,19 @@
-# Diga se eh um triangulo e qual triangulo ele eh
+# Tell whether it is a triangle and which triangle it is
 
-a = int(input('qual a medida de uma reta? '))
-b = int(input('qual a medida de outra reta? '))
-c = int(input('qual a medida de outra reta? '))
+a = int(input("what is the length of one side? "))
+b = int(input("what is the length of another side? "))
+c = int(input("what is the length of another side? "))
 
-lista = [a, b, c]
-nova_lista = sorted(lista)
+sides = [a, b, c]
+sorted_sides = sorted(sides)
 
-if nova_lista[0] + nova_lista[1] > nova_lista[2]:
-    print('é um triangulo!!')
+if sorted_sides[0] + sorted_sides[1] > sorted_sides[2]:
+    print("it is a triangle!!")
     if a == b == c:
-        print('Equilatero')
+        print("Equilateral")
     elif a == b or b == c or a == c:
-        print('Isosceles')
+        print("Isosceles")
     else:
-        print('Escaleno')
+        print("Scalene")
 else:
-    print('não é um triangulo')
+    print("it is not a triangle")

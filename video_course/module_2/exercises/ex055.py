@@ -1,14 +1,14 @@
-# maior e menor pesos lidos
+# highest and lowest weights read
 
-pesos = []
+weights = []
 
-for c in range(1,6):
+for c in range(1, 6):
     while True:
         try:
-            peso = int(input('qual seu peso? '))
+            weight = int(input("what is your weight? "))
             break
         except ValueError:
-            print('digite um numero inteiro')
-    pesos.append(peso)
-pesos.sort()
-print(min(pesos), max(pesos))
+            print("enter an integer")
+    weights.append(weight)
+weights.sort()
+print(min(weights), max(weights))

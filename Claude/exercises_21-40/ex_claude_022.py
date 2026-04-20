@@ -1,31 +1,31 @@
 # inheritance
 
 class Animal:
-    def __init__(self, nome):
-        self.nome = nome
+    def __init__(self, name):
+        self.name = name
 
-    def comer(self):
-        print(f'{self.nome} está comendo')
+    def eat(self):
+        print(f"{self.name} is eating")
 
 
-class Cachorro(Animal):
-    def __init__(self, nome, raca):
-        super().__init__(nome)
-        self.raca = raca
-    def fazer_som(self):
-        print(f'{self.nome} diz: Au au!')
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name)
+        self.breed = breed
+    def make_sound(self):
+        print(f"{self.name} says: Woof woof!")
     def __str__(self):
-        return f'{self.nome} da raca {self.raca}'
+        return f"{self.name} from breed {self.breed}"
 
 
-class Gato(Animal):
-    def fazer_som(self):
-        print(f'{self.nome} diz: Miau!')
+class Cat(Animal):
+    def make_sound(self):
+        print(f"{self.name} says: Meow!")
 
-cachorro = Cachorro('Mocoto','lulu da palmeranea')
-gato = Gato('gabriel')
+dog = Dog("Mocoto", "pomeranian")
+cat = Cat("gabriel")
 
-animais = [gato, cachorro]
+animals = [cat, dog]
 
-for i in range(0,len(animais)):
-    animais[i].fazer_som()
+for i in range(0, len(animals)):
+    animals[i].make_sound()

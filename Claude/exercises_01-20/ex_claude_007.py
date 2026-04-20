@@ -1,9 +1,9 @@
 # global
 
 x = 10
-def minha_funcao():
+def my_function():
     global x
     x = 20
 
-minha_funcao()
-print(x)  # agora sim vai printar 20
+my_function()
+print(x)  # now it will print 20

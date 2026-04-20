@@ -1,9 +1,9 @@
-# desconto def
+# discount def
 
-def valor_descontado(a, b=0):
-    print(f'O valor do produto eh de {a - a * b/100:.2f}')
+def discounted_price(a, b=0):
+    print(f"The product price is {a - a * b/100:.2f}")
 
-# nao estou usando as verificacoes de input que geralmente uso pois estou apenas explorando o def
-valor = int(input('qual o valor do produdo? '))
-desconto = int(input('qual o desconto? (0%-100%) '))
-valor_descontado(valor, desconto)
+# not using the input validations I usually use since I am just exploring def
+price = int(input("what is the product price? "))
+discount = int(input("what is the discount? (0%-100%) "))
+discounted_price(price, discount)

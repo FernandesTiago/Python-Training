@@ -1,12 +1,12 @@
-# Criar cadastros de 3 produtos e exibir na tela ( usando listas e dicionarios )
+# Register 3 products and display on screen (using lists and dictionaries)
 
-produto1 = {'item': 'Computador','valor': 3500,'estoque': 4}
-produto2 = {'item': 'Caixa de som','valor': 300,'estoque': 2}
-produto3 = {'item': 'Televisao','valor': 5500,'estoque': 10}
+product1 = {"item": "Computer", "price": 3500, "stock": 4}
+product2 = {"item": "Speaker", "price": 300, "stock": 2}
+product3 = {"item": "Television", "price": 5500, "stock": 10}
 
-listas = [produto1, produto2, produto3]
+products = [product1, product2, product3]
 
-for lista in listas:
-    print(f"Item: {lista['item']}", end=' ')
-    print(f"Valor: {lista['valor']}", end=' ')
-    print(f"Estoque: {lista['estoque']}")
+for product in products:
+    print(f"Item: {product['item']}", end=" ")
+    print(f"Price: {product['price']}", end=" ")
+    print(f"Stock: {product['stock']}")

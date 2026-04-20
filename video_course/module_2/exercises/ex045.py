@@ -1,56 +1,56 @@
-# Jokenpo
+# Rock Paper Scissors
 
 from random import randint
 from time import sleep
 
-print('-=-'*20)
-print('                  BEM VINDO AO JOKENPO!!!!')
-print('-=-'*20)
+print("-=-" * 20)
+print("                  WELCOME TO ROCK PAPER SCISSORS!!!!")
+print("-=-" * 20)
 
-# 1 Pedra, 2 Papel, 3 Tesoura
+# 1 Rock, 2 Paper, 3 Scissors
 
 while True:
     cpu = randint(1, 3)
     while True:
         try:
-            jogada = input('Qual a sua jogada? (Pedra, Papel, Tesoura) ').strip().upper()
-            if jogada == 'PEDRA' or jogada == 'PAPEL' or jogada == 'TESOURA':
+            move = input("What is your move? (Rock, Paper, Scissors) ").strip().upper()
+            if move == "ROCK" or move == "PAPER" or move == "SCISSORS":
                 break
             else:
-                print(('Pedra, papel ou tesoura? '))
+                print("Rock, paper or scissors? ")
         except ValueError:
-            print('Pedra, papel ou tesoura? ')
+            print("Rock, paper or scissors? ")
 
-    print('CALCULANDO...')
+    print("CALCULATING...")
     sleep(3)
 
-    if jogada == 'PEDRA' and cpu == 1 or jogada == 'PAPEL' and cpu == 2 or jogada == 'TESOURA' and cpu == 3:
-            print('EMPATE!')
-    elif jogada == 'PEDRA' and cpu == 2 or jogada == 'PAPEL' and cpu == 3 or jogada == 'TESOURA' and cpu == 1:
-        print('voce perdeu...')
+    if move == "ROCK" and cpu == 1 or move == "PAPER" and cpu == 2 or move == "SCISSORS" and cpu == 3:
+        print("TIE!")
+    elif move == "ROCK" and cpu == 2 or move == "PAPER" and cpu == 3 or move == "SCISSORS" and cpu == 1:
+        print("you lost...")
     else:
-        print('VOCE GANHOUU!!!!!')
+        print("YOU WON!!!!!")
         break
 
 
-# VERSÃO AVANÇADA - estudar depois
+# ADVANCED VERSION - study later
 
-# 1. Usar dicionário para mapear jogadas e resultados:
-# opcoes = {1: 'PEDRA', 2: 'PAPEL', 3: 'TESOURA'}
-# cpu_jogada = opcoes[randint(1, 3)]
+# 1. Use dictionary to map moves and results:
+# options = {1: "ROCK", 2: "PAPER", 3: "SCISSORS"}
+# cpu_move = options[randint(1, 3)]
 
-# 2. Usar dicionário para definir quem vence quem:
-# vence = {'PEDRA': 'TESOURA', 'PAPEL': 'PEDRA', 'TESOURA': 'PAPEL'}
-# if vence[jogada] == cpu_jogada: print('VOCE GANHOU!')
+# 2. Use dictionary to define who beats whom:
+# beats = {"ROCK": "SCISSORS", "PAPER": "ROCK", "SCISSORS": "PAPER"}
+# if beats[move] == cpu_move: print("YOU WON!")
 
-# 3. Usar função para validar input:
-# def pedir_jogada():
+# 3. Use function to validate input:
+# def ask_move():
 #     while True:
-#         jogada = input('...').strip().upper()
-#         if jogada in ['PEDRA', 'PAPEL', 'TESOURA']:
-#             return jogada
+#         move = input("...").strip().upper()
+#         if move in ["ROCK", "PAPER", "SCISSORS"]:
+#             return move
 
-# 4. Contador de pontos com placar:
-# vitorias, derrotas, empates = 0, 0, 0
+# 4. Score counter:
+# wins, losses, ties = 0, 0, 0
 
-# 5. Perguntar se quer jogar de novo em vez de parar só na vitória
+# 5. Ask if user wants to play again instead of stopping only on victory

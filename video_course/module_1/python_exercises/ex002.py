@@ -1,2 +1,2 @@
-nome = input('qual seu nome? ')
-print("it's a pleasure to meet you, {nome}!")
+name = input("what is your name? ")
+print(f"it's a pleasure to meet you, {name}!")

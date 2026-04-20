@@ -1,164 +1,164 @@
-# agenda de contatos
-# adicionado a funcao de excluir contatos
+# contact list
+# added feature to delete contacts
 
 
-nomes = []
-numeros = []
+names = []
+numbers = []
 
 while True:
-    print('\n--- Agenda de contatos ---')
-    print('''
-[1] Adicionar contato
-[2] Buscar contato
-[3] Abrir agenda
-[4] Excluir contato
-[5] Sair
-''')
+    print("\n--- Contact list ---")
+    print("""
+[1] Add contact
+[2] Search contact
+[3] Open contact list
+[4] Delete contact
+[5] Exit
+""")
     while True:
         try:
-            acao = int(input('Oque deseja fazer? '))
-            if 1 <= acao <= 5:
+            action = int(input("What do you want to do? "))
+            if 1 <= action <= 5:
                 break
             else:
                 continue
         except ValueError:
-            print('Digite um valor de 1 a 5')
-    if acao == 1:
+            print("Enter a value from 1 to 5")
+    if action == 1:
         while True:
-            print(f'\n--- adicionar contato {len(nomes)+1} ---\n')
-            nome = input('Qual nome deseja salvar? ').strip().title()
-            if nome.replace(' ','').isalpha():
-                nomes.append(nome)
+            print(f"\n--- add contact {len(names)+1} ---\n")
+            name = input("What name do you want to save? ").strip().title()
+            if name.replace(" ", "").isalpha():
+                names.append(name)
                 break
             else:
-                print('\nNome invalido\n')
+                print("\nInvalid name\n")
         while True:
-            numero = input('Qual o numero de telefone? (13 digitos): ').strip()
-            if numero.isdigit() and len(numero) == 13:
-                numero = list(numero)
-                numero.insert(0,'+')
-                numero.insert(3,' ')
-                numero.insert(4,'(')
-                numero.insert(7,')')
-                numero.insert(8,' ')
-                numero.insert(14,'-')
-                numero = ''.join(numero)
-                numeros.append(numero)
-                print(f'\nContato {nome} adicionado com numero {numero}!\n')
+            number = input("What is the phone number? (13 digits): ").strip()
+            if number.isdigit() and len(number) == 13:
+                number = list(number)
+                number.insert(0, "+")
+                number.insert(3, " ")
+                number.insert(4, "(")
+                number.insert(7, ")")
+                number.insert(8, " ")
+                number.insert(14, "-")
+                number = "".join(number)
+                numbers.append(number)
+                print(f"\nContact {name} added with number {number}!\n")
                 break
             else:
-                print('\nDigite o codigo de regiao ddd e numero tudo junto!\n')
-    elif acao == 2:
-        if len(nomes) > 0:
-            parar = False
-            while not parar:
-                buscar = input('\nQual nome deseja buscar? ').strip().title()
-                if buscar.replace(' ','').isalpha():
-                    for b in range(len(nomes)):
-                        if buscar in nomes[b]:
-                            print(f'''
-{nomes[b]}
-{numeros[b]}''')
-                            parar = True
+                print("\nEnter the country code, area code and number all together!\n")
+    elif action == 2:
+        if len(names) > 0:
+            stop = False
+            while not stop:
+                search = input("\nWhat name do you want to search? ").strip().title()
+                if search.replace(" ", "").isalpha():
+                    for b in range(len(names)):
+                        if search in names[b]:
+                            print(f"""
+{names[b]}
+{numbers[b]}""")
+                            stop = True
                     else:
-                        if not parar:
-                            print('Nome nao encontrado')
+                        if not stop:
+                            print("Name not found")
                             while True:
-                                continuar = input('Deseja tentar denovo? (S/N) ').strip().upper()
-                                if continuar == 'S' or continuar == 'N':
-                                    if continuar == 'S':
+                                keep_going = input("Do you want to try again? (Y/N) ").strip().upper()
+                                if keep_going == "Y" or keep_going == "N":
+                                    if keep_going == "Y":
                                         break
                                     else:
-                                        parar = True
+                                        stop = True
                                         break
                                 else:
-                                    print('Digite "S" ou "N"')
+                                    print('Enter "Y" or "N"')
                 else:
-                    print('\nDigite uma nome valido')
+                    print("\nEnter a valid name")
         else:
-            print('\nLista de contatos vazia')
-    elif acao == 3:
-        if len(nomes) > 0:
-            for b in range(len(nomes)):
-                print(f'''
-{nomes[b]}
-{numeros[b]}''')
+            print("\nContact list is empty")
+    elif action == 3:
+        if len(names) > 0:
+            for b in range(len(names)):
+                print(f"""
+{names[b]}
+{numbers[b]}""")
         else:
-            print('\nLista de contatos vazia')      
-    elif acao == 4:
-        if len(nomes) > 0:
-            parar = False
-            while not parar:
-                indices_encontrados = []
-                buscar = input('\nQue contato deseja excluir? ').strip().title()
-                if buscar.replace(' ','').isalpha():
-                    for b in range(len(nomes)):
-                        if buscar in nomes[b]:
-                            indices_encontrados.append(b)
-                            print(f'''
-/ [{len(indices_encontrados)}]
-/ {nomes[b]}
-/ {numeros[b]}''')
-                    if len(indices_encontrados) > 1:
-                        while not parar:
+            print("\nContact list is empty")
+    elif action == 4:
+        if len(names) > 0:
+            stop = False
+            while not stop:
+                found_indexes = []
+                search = input("\nWhich contact do you want to delete? ").strip().title()
+                if search.replace(" ", "").isalpha():
+                    for b in range(len(names)):
+                        if search in names[b]:
+                            found_indexes.append(b)
+                            print(f"""
+/ [{len(found_indexes)}]
+/ {names[b]}
+/ {numbers[b]}""")
+                    if len(found_indexes) > 1:
+                        while not stop:
                             try:
-                                escolha = int(input(f'\nQual contato deseja excluir? (1 a {len(indices_encontrados)}) '))
-                                if 1<= escolha <= len(indices_encontrados):
-                                    indice_real = indices_encontrados[escolha - 1]
-                                    print(f'''
-{nomes[indice_real]}
-{numeros[indice_real]}
-''')
-                                    while not parar:
-                                        excluir = input('\nTem certeza que dejesa excluir esse contato? (S/N) ').strip().upper()
-                                        if excluir == 'S' or excluir == 'N':
-                                            if excluir == 'S':
-                                                nomes.pop(indice_real)
-                                                numeros.pop(indice_real)
-                                                print('\nNome excluido')
-                                                parar = True
+                                choice = int(input(f"\nWhich contact do you want to delete? (1 to {len(found_indexes)}) "))
+                                if 1 <= choice <= len(found_indexes):
+                                    real_index = found_indexes[choice - 1]
+                                    print(f"""
+{names[real_index]}
+{numbers[real_index]}
+""")
+                                    while not stop:
+                                        delete = input("\nAre you sure you want to delete this contact? (Y/N) ").strip().upper()
+                                        if delete == "Y" or delete == "N":
+                                            if delete == "Y":
+                                                names.pop(real_index)
+                                                numbers.pop(real_index)
+                                                print("\nName deleted")
+                                                stop = True
                                             else:
-                                                print('\nNome não excluido')
-                                                parar = True
+                                                print("\nName not deleted")
+                                                stop = True
                                         else:
-                                            print('Digite "S" ou "N"')    
+                                            print('Enter "Y" or "N"')
                                         break
                             except ValueError:
-                                print('Digite um valor valido')
-                    elif len(indices_encontrados) == 1:
+                                print("Enter a valid value")
+                    elif len(found_indexes) == 1:
                         while True:
-                            excluir = input('\nTem certeza que dejesa excluir esse contato? (S/N) ').strip().upper()
-                            if excluir == 'S' or excluir == 'N':
-                                if excluir == 'S':
-                                    indice_real = len(indices_encontrados) - 1
-                                    nomes.pop(indice_real)
-                                    numeros.pop(indice_real)
-                                    print('\nNome excluido')
-                                    parar = True
+                            delete = input("\nAre you sure you want to delete this contact? (Y/N) ").strip().upper()
+                            if delete == "Y" or delete == "N":
+                                if delete == "Y":
+                                    real_index = len(found_indexes) - 1
+                                    names.pop(real_index)
+                                    numbers.pop(real_index)
+                                    print("\nName deleted")
+                                    stop = True
                                     break
                                 else:
-                                    print('\nNome não excluido')
-                                    parar = True
+                                    print("\nName not deleted")
+                                    stop = True
                                     break
                             else:
-                                print('Digite "S" ou "N"')
+                                print('Enter "Y" or "N"')
                     else:
-                        if not parar:
-                            print('Nome nao encontrado')
+                        if not stop:
+                            print("Name not found")
                             while True:
-                                continuar = input('Deseja tentar denovo? (S/N) ').strip().upper()
-                                if continuar == 'S' or continuar == 'N':
-                                    if continuar == 'S':
+                                keep_going = input("Do you want to try again? (Y/N) ").strip().upper()
+                                if keep_going == "Y" or keep_going == "N":
+                                    if keep_going == "Y":
                                         break
                                     else:
-                                        parar = True
+                                        stop = True
                                         break
                                 else:
-                                    print('Digite "S" ou "N"')
+                                    print('Enter "Y" or "N"')
                 else:
-                    print('Digite um nome valido')
+                    print("Enter a valid name")
         else:
-            print('\nLista de contatos vazia')
+            print("\nContact list is empty")
     else:
-        print('\nObrigado Por usar usar a agenda!!\n')
+        print("\nThank you for using the contact list!!\n")
         break

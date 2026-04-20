@@ -1,40 +1,40 @@
-# estoque usando def
+# stock using def
 
-def cadastrar_produto(nome, quantidade, preco):
-    produto = {'nome': nome,'quantidade': quantidade, 'preco': preco}
-    return produto
+def register_product(name, quantity, price):
+    product = {"name": name, "quantity": quantity, "price": price}
+    return product
 
-def valor_total_produto(produto):
-    valor_total = produto['quantidade']*produto['preco']
-    return valor_total
+def product_total_value(product):
+    total_value = product["quantity"] * product["price"]
+    return total_value
 
-def valor_total_estoque(lista_produtos):
-    valor_estoque_total = 0
-    for produto in lista_produtos:
-        valor_estoque_total += valor_total_produto(produto)
-    return valor_estoque_total
-def produtos_em_falta(lista_produtos):
-    produtos_faltando = []
-    for produto in lista_produtos:
-        if produto['quantidade'] == 0:
-            produtos_faltando.append(produto['nome'])
-    return produtos_faltando
-def printar(lista_produtos):
-    faltando = produtos_em_falta(lista_produtos)
-    for produto in lista_produtos:
-        print(f'Produto: {produto['nome']:<10} Quantidade: {produto['quantidade']:>3} Preco: {produto['preco']:>6.2f}')
-    print(f'Valor total do estoque: {valor_total_estoque(lista_produtos):.2f}')
-    if len(faltando) == 0:
-        print(f'Nenhum item faltando')
+def stock_total_value(product_list):
+    total_stock_value = 0
+    for product in product_list:
+        total_stock_value += product_total_value(product)
+    return total_stock_value
+def out_of_stock_products(product_list):
+    missing_products = []
+    for product in product_list:
+        if product["quantity"] == 0:
+            missing_products.append(product["name"])
+    return missing_products
+def display(product_list):
+    missing = out_of_stock_products(product_list)
+    for product in product_list:
+        print(f"Product: {product['name']:<10} Quantity: {product['quantity']:>3} Price: {product['price']:>6.2f}")
+    print(f"Total stock value: {stock_total_value(product_list):.2f}")
+    if len(missing) == 0:
+        print("No missing items")
     else:
-        print(f'Os item em falta sao: {', '.join(faltando)}')
+        print(f"The missing items are: {', '.join(missing)}")
 
-produto1 = cadastrar_produto('Caneta', 50, 1.5)
-produto2 = cadastrar_produto('Caderno', 0, 12.90)
-produto3 = cadastrar_produto('Borracha', 30, 0.75)
-produto4 = cadastrar_produto('Regua', 0, 3.20)
-produto5 = cadastrar_produto('lapis', 100, 0.5)
+product1 = register_product("Pen", 50, 1.5)
+product2 = register_product("Notebook", 0, 12.90)
+product3 = register_product("Eraser", 30, 0.75)
+product4 = register_product("Ruler", 0, 3.20)
+product5 = register_product("pencil", 100, 0.5)
 
-produtos = [produto1, produto2, produto3, produto4, produto5]
+products = [product1, product2, product3, product4, product5]
 
-printar(produtos)
+display(products)

@@ -1,50 +1,49 @@
-# nome idade e sexo de 4 pessoas: media de idade, homem mais velho e mulheres com menos de 20
+# name, age and gender of 4 people: average age, oldest man and women under 20
 
-sexos = []
-nomes = []
-idades = []
+genders = []
+names = []
+ages = []
 
-for c in range(1,5):
+for c in range(1, 5):
     while True:
-        sexo = input('qual seu sexo? (H, F) ').strip().upper()
-        if sexo == 'H' or sexo == 'F':
-            sexos.append(sexo)
+        gender = input("what is your gender? (M, F) ").strip().upper()
+        if gender == "M" or gender == "F":
+            genders.append(gender)
             break
         else:
-            print('Digite M ou F')
+            print("Enter M or F")
     while True:
-        nome = input('qual seu nome? ').strip().title()
-        if nome.isnumeric() or nome.isdigit() or nome.find('.') != -1:
-            print('digite seu nome!')
+        name = input("what is your name? ").strip().title()
+        if name.isnumeric() or name.isdigit() or name.find(".") != -1:
+            print("enter your name!")
         else:
-            nomes.append(nome)
+            names.append(name)
             break
     while True:
         try:
-            idade = int(input('qual sua idade? '))
-            if 0 < idade <= 100:
-                idades.append(idade)
+            age = int(input("what is your age? "))
+            if 0 < age <= 100:
+                ages.append(age)
                 break
             else:
-                print('digite um valor de 1 a 100')
+                print("enter a value from 1 to 100")
         except ValueError:
-            print('digite um valor de 1 a 100')
+            print("enter a value from 1 to 100")
 
-mulheres_menores = []
-idade_homens = []
+young_women = []
+men_ages = []
 
-for b in range(len(sexos)):
-    if sexos[b] == 'F' and idades[b] < 20:
-        mulheres_menores.append(nomes[b])
-    elif sexos[b] == 'H':
-        idade_homens.append(idades[b])
+for b in range(len(genders)):
+    if genders[b] == "F" and ages[b] < 20:
+        young_women.append(names[b])
+    elif genders[b] == "M":
+        men_ages.append(ages[b])
 
 print()
-print(f'A media de idade eh de {sum(idades)/len(idades)}')
-if idade_homens:
-    print(f'O homem mais velho eh o {nomes[idades.index(max(idade_homens))]} e ele tem {max(idade_homens)} anos')
+print(f"The average age is {sum(ages)/len(ages)}")
+if men_ages:
+    print(f"The oldest man is {names[ages.index(max(men_ages))]} and he is {max(men_ages)} years old")
 else:
-    print('nenhum homem no grupo')
-if mulheres_menores:
-    print(f'As mulheres com menos de 20 anos sao: {', '.join(mulheres_menores)}')
-
+    print("no men in the group")
+if young_women:
+    print(f"The women under 20 are: {', '.join(young_women)}")

@@ -1,28 +1,28 @@
-# 5 funcionarios, media salario, quem ganha mais que a media e qual o menor e maior salario
+# 5 employees, salary average, who earns more than average, and the lowest and highest salary
 
-funcionarios = []
-salarios = []
+employees = []
+salaries = []
 
 c = 0
 
 while c < 5:
-    print(f'\n--- Casdastro do {c+1} Funcionario ---')
-    funcionario = input('\nQual o nome do funcionario? ').strip().title()
-    if funcionario.replace(' ','').isalpha():
-        funcionarios.append(funcionario)
+    print(f"\n--- Registering employee {c+1} ---")
+    employee = input("\nWhat is the employee name? ").strip().title()
+    if employee.replace(" ", "").isalpha():
+        employees.append(employee)
     else:
-        print('\nDigite um nome valido')
+        print("\nEnter a valid name")
         continue
     try:
-        salario = float(input('Qual o salario dele(a)? R$'))
-        salarios.append(salario)
+        salary = float(input("What is their salary? $"))
+        salaries.append(salary)
         c += 1
     except ValueError:
-        print('\nDigite um valor valido\n')
-print(f'A media do salario é de {sum(salarios)/c}')
-print('Os funcionarios que ganham igual ou mais que a media sao: ', end='')
-for b in range(len(salarios)):
-    if salarios[b] >= sum(salarios)/c:
-        print(funcionarios[b], end= ', ')
-print(f'\nO maior salario é de R${max(salarios)}')
-print(f'E o menor é de R${min(salarios)}')
+        print("\nEnter a valid value\n")
+print(f"The salary average is {sum(salaries)/c}")
+print("Employees that earn equal to or more than the average are: ", end="")
+for b in range(len(salaries)):
+    if salaries[b] >= sum(salaries)/c:
+        print(employees[b], end=", ")
+print(f"\nThe highest salary is ${max(salaries)}")
+print(f"And the lowest is ${min(salaries)}")

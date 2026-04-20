@@ -1,4 +1,4 @@
-l = int(input('qual a largura da parede? '))
-a = int(input('qual a altura da parede? '))
+w = int(input("what is the wall width? "))
+h = int(input("what is the wall height? "))
 
-print(f'Para pintar a parede de {l * a}m^2 voce precisa de {(l * a)/2} litros de tinta')
+print(f"To paint the {w * h}m^2 wall you need {(w * h)/2} liters of paint")

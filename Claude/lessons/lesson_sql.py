@@ -1,30 +1,33 @@
-#learning SQL
+# learning SQL
 
 import sqlite3
+from pathlib import Path
 
-conexao = sqlite3.connect('funcionarios.db')
-cursor = conexao.cursor()
+DB_FILE = Path(__file__).parent / "employees.db"
 
-cursor.execute('''
-    CREATE TABLE IF NOT EXISTS funcionarios (
+connection = sqlite3.connect(DB_FILE)
+cursor = connection.cursor()
+
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS employees (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome TEXT,
-        salario INTEGER
+        name TEXT,
+        salary INTEGER
     )
-''')
-#cursor.execute('INSERT INTO funcionarios (nome, salario) VALUES (?, ?)', ('Tiago', 2500))
-#cursor.execute('INSERT INTO funcionarios (nome, salario) VALUES (?,?)', ('Juliana', 3000))
+""")
+# cursor.execute("INSERT INTO employees (name, salary) VALUES (?, ?)", ("Tiago", 2500))
+# cursor.execute("INSERT INTO employees (name, salary) VALUES (?,?)", ("Juliana", 3000))
 
-#cursor.execute('UPDATE funcionarios SET salario = 5000 WHERE id = 1')
+# cursor.execute("UPDATE employees SET salary = 5000 WHERE id = 1")
 
-#cursor.execute('DELETE FROM funcionarios WHERE id = 1')
+# cursor.execute("DELETE FROM employees WHERE id = 1")
 
-cursor.execute('SELECT * FROM funcionarios')
-lista = cursor.fetchall()
+cursor.execute("SELECT * FROM employees")
+rows = cursor.fetchall()
 
-for item in lista:
-    print(f'ID: {item[0]} | Nome: {item[1]} | Salario: {item[2]}')
+for item in rows:
+    print(f"ID: {item[0]} | Name: {item[1]} | Salary: {item[2]}")
 
 
-conexao.commit()
-conexao.close()
+connection.commit()
+connection.close()

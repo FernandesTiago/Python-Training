@@ -1,15 +1,15 @@
-# digitacao de 6 numeros e soma apenas dos pares
+# input of 6 numbers and sum only the even ones
 
-soma = 0
+total = 0
 
-for c in range(0,6):
+for c in range(0, 6):
     while True:
         try:
-            n = int(input('Digite um valor: '))
+            n = int(input("Enter a value: "))
             break
         except ValueError:
-            print('Digite um numero inteiro!!')
+            print("Enter an integer!!")
     if n % 2 == 0:
-        soma = soma + n
+        total = total + n
 
-print(soma)
+print(total)

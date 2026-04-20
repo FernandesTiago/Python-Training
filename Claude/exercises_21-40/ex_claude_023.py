@@ -1,43 +1,43 @@
 # Class training
 
-class Funcionario:
-    def __init__(self, nome, salario):
-        self.nome = nome
-        self.salario = salario
-    def detalhes(self):
-        print(f'Funcionario: {self.nome} | Salario: R$ {self.salario}')
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+    def details(self):
+        print(f"Employee: {self.name} | Salary: $ {self.salary}")
     def __str__(self):
-        return f'Funcionario: {self.nome} | Salario: R$ {self.salario}'
-    
-class Gerente(Funcionario):
-    def __init__(self, nome, salario, departamento):
-        super().__init__(nome, salario)
-        self.departamento = departamento
-    def __str__(self):
-        return f'Funcionario: {self.nome} | Salario: R$ {self.salario} | Departamento: {self.departamento}'
-    
-class Desenvolvidor(Funcionario):
-    def __init__(self, nome, salario, linguagem):
-        super().__init__(nome, salario)
-        self.linguagem = linguagem
-    def codar(self):
-        if self.linguagem == 'Python':
-            print(f'{self.nome}: print("Hello")')
-        elif self.linguagem == 'Java':
-            print(f'{self.nome}: System.out.println("Hello")')
-        elif self.linguagem == 'JavaScript':
-            print(f'{self.nome}: console.log("Hello")')
+        return f"Employee: {self.name} | Salary: $ {self.salary}"
 
-gerente = Gerente('Tiago', 2500, 'Cybersecurity')
-dev1 = Desenvolvidor('Juliana', 1500, 'Python')
-dev2 = Desenvolvidor('Mari', 1250, 'JavaScript')
+class Manager(Employee):
+    def __init__(self, name, salary, department):
+        super().__init__(name, salary)
+        self.department = department
+    def __str__(self):
+        return f"Employee: {self.name} | Salary: $ {self.salary} | Department: {self.department}"
+
+class Developer(Employee):
+    def __init__(self, name, salary, language):
+        super().__init__(name, salary)
+        self.language = language
+    def code(self):
+        if self.language == "Python":
+            print(f'{self.name}: print("Hello")')
+        elif self.language == "Java":
+            print(f'{self.name}: System.out.println("Hello")')
+        elif self.language == "JavaScript":
+            print(f'{self.name}: console.log("Hello")')
+
+manager = Manager("Tiago", 2500, "Cybersecurity")
+dev1 = Developer("Juliana", 1500, "Python")
+dev2 = Developer("Mari", 1250, "JavaScript")
 
 devs = [dev1, dev2]
-gerentes = [gerente]
-funcionarios = gerentes + devs
+managers = [manager]
+employees = managers + devs
 
-for funcionario in funcionarios:
-    funcionario.detalhes()
+for employee in employees:
+    employee.details()
 
 for dev in devs:
-    dev.codar()
+    dev.code()

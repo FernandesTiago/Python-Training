@@ -1,8 +1,8 @@
-# aprendendo def
+# learning def
 
-def titulo(txt):
-    print("-"*30)
+def title(txt):
+    print("-" * 30)
     print(txt)
-    print("-"*30)
+    print("-" * 30)
 
-titulo('  BEM VINDO AO ESTUDO DE DEF')
+title("  WELCOME TO THE DEF STUDY")

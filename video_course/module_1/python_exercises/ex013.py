@@ -1,2 +1,2 @@
-s = float(input('qual e seu salario? '))
-print(f'Seu salario com ajuste e R${s*1.15:.2f}')
+s = float(input("what is your salary? "))
+print(f"Your adjusted salary is R${s*1.15:.2f}")

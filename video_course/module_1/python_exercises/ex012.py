@@ -1,3 +1,3 @@
-n = float(input('qual o valor do produto? '))
+n = float(input("what is the product price? "))
 
-print(f'O produto descontado vai ser vendido por R${n*0.95}')
+print(f"The discounted product will be sold for R${n*0.95}")

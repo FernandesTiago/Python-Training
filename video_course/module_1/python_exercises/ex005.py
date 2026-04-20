@@ -1,2 +1,2 @@
-n = int(input('digite um valor: '))
-print(f'{n-1} e {n+1}')
+n = int(input("enter a value: "))
+print(f"{n-1} and {n+1}")

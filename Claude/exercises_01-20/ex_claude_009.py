@@ -1,9 +1,9 @@
-# soma de dois numeros usando def
+# sum of two numbers using def
 
-def soma(a, b):
-    return(a + b)
+def add(a, b):
+    return a + b
 
-resultado1 = soma(2, 6)
-resultado2 = soma(6,10)
+result1 = add(2, 6)
+result2 = add(6, 10)
 
-print(resultado2 + resultado1)
+print(result2 + result1)

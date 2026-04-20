@@ -1,16 +1,16 @@
-# app que permite digitar infinitos numeros ate digitar 999, mostrar quantos numeros foram e soma entre eles.
+# app that allows entering infinite numbers until 999 is entered, showing how many numbers were entered and their sum.
 
-soma = 0
-contagem = 0
+total = 0
+count = 0
 
 while True:
     try:
-        numero = int(input('Digite um numero: '))
-        if numero == 999:
-            print(f'a soma dos valroes eh de {soma}. Itens somados: {contagem}')
+        number = int(input("Enter a number: "))
+        if number == 999:
+            print(f"the sum of the values is {total}. Items added: {count}")
             break
         else:
-            soma += numero
-            contagem += 1
+            total += number
+            count += 1
     except ValueError:
-        print('Valor invalido')
+        print("Invalid value")

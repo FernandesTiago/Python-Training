@@ -1,2 +1,2 @@
-m = int(input('quantos metros? '))
-print(f'{m} Metros, {m*100} Centimetros e {m*1000} milimetros')
+m = int(input("how many meters? "))
+print(f"{m} Meters, {m*100} Centimeters and {m*1000} millimeters")

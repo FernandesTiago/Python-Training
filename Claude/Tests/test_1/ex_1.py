@@ -1,14 +1,14 @@
-# Crie uma função que recebe uma lista de números
-# e retorna a soma de todos os elementos.
+# Create a function that receives a list of numbers
+# and returns the sum of all elements.
 
-# Teste com: [10, 20, 30, 40]
+# Test with: [10, 20, 30, 40]
 
-def soma(lista_numeros):
-    soma = 0
-    for numero in lista_numeros:
-        soma += numero
-    return soma
+def total(number_list):
+    result = 0
+    for number in number_list:
+        result += number
+    return result
 
-lista = [10, 20, 30, 40]
+numbers = [10, 20, 30, 40]
 
-print(f'Soma = {soma(lista)}')
+print(f"Sum = {total(numbers)}")
