@@ -1,0 +1,27 @@
+# CREATE
+cursor.execute('''CREATE TABLE IF NOT EXISTS table_name (
+    id      INTEGER PRIMARY KEY AUTOINCREMENT,
+    name    TEXT,
+    value   REAL
+)''')
+
+# INSERT
+cursor.execute('INSERT INTO table_name (name, value) VALUES (?, ?)', (name, value))
+
+# SELECT all
+cursor.execute('SELECT * FROM table_name')
+rows = cursor.fetchall()
+
+# SELECT one
+cursor.execute('SELECT * FROM table_name WHERE id = ?', (id,))
+row = cursor.fetchone()
+
+# UPDATE
+cursor.execute('UPDATE table_name SET name = ?, value = ? WHERE id = ?', (name, value, id))
+
+# DELETE
+cursor.execute('DELETE FROM table_name WHERE id = ?', (id,))
+
+# Always commit after INSERT / UPDATE / DELETE
+connection.commit()
+Golden rule: always WHERE on UPDATE and DELETE, always commit() after changes.
